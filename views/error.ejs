@@ -1,0 +1,11 @@
+
+<button onclick="openNew()" >Click Me</button>
+<script>
+    function openNew() {
+        var str = JSON.stringify({'reda':12,'adam':12,'hind':12,})
+        var token = 'fdfdlsl;fslfs'
+         str = str+token
+        var encodedString = btoa(str);
+        window.open("http://reda12king.myshopify.com?token="+encodedString);
+    }
+</script>

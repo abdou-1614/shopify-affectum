@@ -1,0 +1,1819 @@
+<html>
+<head>
+    <meta charset="utf-8">
+
+
+    <title>Pixelfy Pixels |Best Pixels App </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa:300,400">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/polaris@11.0.1/build/cjs/index.min.js"></script>
+    <style>
+        main {
+            margin-left: 40px !important;
+        }
+        .goog-te-gadget .goog-te-combo {
+            font-size: 14px !important;
+            padding: 20px 2px !important;
+            font-weight: 700;
+            background: #1d225f!important;
+            border: #f3f3f3 !important;
+            color: #fff !important;
+        }
+        .fb_pixel_right {
+            width: 100%;
+            margin:auto;
+        }
+        ul.nav.nav-tabs.panel-heading.tab_bg {
+            width: 50%;
+            margin: auto;
+            float: right;
+        }
+        .del-btn {
+            background: #fb4242;
+            font-size: 13px !important;
+        }
+        .edit-btn {
+            background: #5978f7;
+            font-size: 13px !important;
+        }
+        div#tab-1 {
+            padding-left: 5% !important;
+            width: 90%;
+            margin: auto;
+            float: right;
+        }
+    
+        .header-container {
+            position: relative;
+            height: 45px;
+        }
+    
+        .header-bar {
+            width: 100%;
+            position: fixed;
+            height: 45px;
+            background: #1e225e;;
+            z-index: 9999;
+        }
+    
+    
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+    
+        @media screen and (min-width: 750px){
+            .more-apps-block>p {
+                float: left;
+                font-family: "Helvetica";
+                padding: 5px 5px 0 0;
+                font-size: 0.9em;
+                width: 72%;
+                text-align: left;
+                font-weight: 700;
+                color: #000;
+                margin: 0;
+                line-height: 1.7em;
+            }
+        }
+    
+    
+    
+    
+    
+    
+        .menu-items li {
+            float: left;
+            display: inline;
+            padding: 0;
+            line-height: 3.7em;
+            cursor: pointer;
+            margin-right: 1.7em;
+        }
+    
+        .menu-items li a {
+            text-decoration: none;
+            color: inherit;
+            float: left;
+        }
+    
+        .menu-items li a:visited {
+            text-decoration: none;
+            color: inherit;
+        }
+    
+        .menu-items li:not(.selected):hover {
+            color: #000;
+            border-bottom: 0.3rem solid #ccc;
+        }
+    
+        .menu-items li.selected {
+            color: #000;
+            border-bottom: 0.3rem solid #5c6ac4;
+        }
+    
+    
+        @media screen and (min-width: 750px){
+            .app-block-holder {
+                position: fixed;
+                top: 60;
+                width: 24rem;
+            }
+        }
+        @media screen and (min-width: 750px){
+            .app-block {
+                width: 100%;
+                float: left;
+                height: 50px;
+                padding: 10px;
+            }
+        }
+        @media screen and (min-width: 750px){
+            .app-block-logo {
+                float: left;
+                width: 50px;
+                height: 50px;
+                margin-right: 1rem;
+                background: url(style.css) left top / 50px 50px no-repeat;
+                border-radius: 5px;
+                -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.24);
+                -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.24);
+                box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.24);
+            }
+        }
+        @media screen and (min-width: 750px){
+            .app-block>p {
+                float: left;
+                height: 50px;
+                font-family: "Helvetica";
+                padding: 5px 5px 5px 0;
+                font-size: 1.1em;
+                width: 72%;
+                text-align: left;
+                font-weight: 700;
+                color: #000;
+            }
+        }
+    </style>
+
+    <script>
+        function addPixelRow(pixel) {
+            let table = $('.list');
+            let row = '';
+            if (pixel.type == 'master') {
+
+                row = '<tr id="pixelRow' + pixel.id + '">\n' +
+                    '<td><span style="display:none" id="type' + pixel.id + '">All pages</span>\n' +
+                    '<span id="code' + pixel.id + '">' + pixel.code + '</span></td>' +
+                    '<td><span>All pages</span></td>' +
+                    ' <td>' +
+                    '<button pixelid="' + pixel.id + '" class="btn btn-default edit-btn">Edit</button>' +
+                    ' <button pixelid="' + pixel.id + '" class="btn btn-default del-btn">Delete</button>' +
+                    '</td>' +
+                    '<td><span style="display:none" value="' + pixel.accss_token + '" id="accss_token' + pixel.id + '">access_token</span>' +
+                    '<td><span style="display:none"  value="' + pixel.test_code + '"  id="test_code' + pixel.id + '">test_code</span>' +
+                    '</tr>';
+            } else {
+                let collects = '';
+                let collectIds = '';
+                for (var i = 0; i < pixel.collections.length; i++) {
+                    collects = collects + pixel.namecol[i] + ', ';
+                }
+                for (var i = 0; i < pixel.collections.length; i++) {
+                    collectIds = collectIds +pixel.collections[i] + ', ';
+                }
+
+                row = '<tr id="pixelRow' + pixel.id + '"><td>' +
+                    '<span style="display:none"  id="collections' + pixel.id + '">' + collectIds.slice(0, -2) + '</span>' +
+                    '<span id="code' + pixel.id + '">' + pixel.code + '</span></td>' +
+                    '<td><span>' + collects.slice(0, -2) + '</span></td>' +
+                    '<td style="display:none"><span style="display:none"  id="type'  + pixel.id + '"     >collection</span>' +
+
+                    ' <td>' +
+                    '<button pixelid="' + pixel.id + '" class="btn btn-default edit-btn">Edit</button>' +
+                    ' <button pixelid="' + pixel.id + '" class="btn btn-default del-btn">Delete</button>' +
+                    '</td>' +
+                    '<td><span style="display:none" value="' + pixel.accss_token + '" id="accss_token' + pixel.id + '">access_token</span>' +
+                    '<td><span style="display:none"  value="' + pixel.test_code + '"  id="test_code' + pixel.id + '">test_code</span>' +
+                    '</tr>';
+
+            }
+
+            table.append(row);
+        }
+
+
+    </script>
+</head>
+
+<!-- Load Facebook SDK for JavaScript -->
+<body>
+<div class="header-container">
+    <div class="header-bar">
+
+    </div>
+</div>
+
+<style type="text/css">
+    .popup h2 {
+        margin-top: 0;
+        color: #333;
+        font-family: Tahoma, Arial, sans-serif;
+    }
+    .popup .close {
+        position: absolute;
+        top: 35px;
+        left: 25px;
+        background: #00495d;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        padding: 0px 5px;
+    }
+
+
+    .popup .close:hover {
+        color: #ffffff;
+    }
+    .popup .content {/*	max-height: 30%;
+*/overflow: auto;border-top: 2px dashed #d1d6d8;margin-top: 16px;}
+    .div1 {
+        width: 50%;
+        padding: 20px;
+        /* float: left; */
+        height: auto;
+        background:#fff;
+        border-radius: 25px;
+    }
+
+
+    .content h3 { text-align: center;
+        margin: 15px 0 -1px 0;
+        text-transform: uppercase;
+        color: #00495d;
+    }
+</style>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .sidebar {
+position: fixed;
+top: 0;
+left: 0;
+width: 230px;
+height: 100vh;
+background-color: #fff;
+z-index: 0;
+margin-top: 120px
+}
+
+/* Sidebar navigation */
+.sidebar-nav {
+height: 100%;
+overflow-y: auto;
+padding: 20px;
+}
+
+/* Navigation list */
+.nav-list {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+/* Navigation item */
+.nav-item {
+margin-bottom: 10px;
+}
+
+/* Navigation item title */
+.nav-item-title {
+font-size: 18px;
+font-weight: 600;
+color: #333;
+}
+
+/* Navigation item content */
+.nav-item-content {
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+
+/* Navigation item icon */
+.nav-item-icon {
+width: 30px;
+height: 30px;
+margin-right: 10px;
+background-color: #ccc;
+border-radius: 50%;
+}
+
+/* Navigation item label */
+.nav-item-label {
+font-size: 14px;
+color: #555;
+}
+
+/* Navigation item link */
+.nav-item-link {
+text-decoration: none;
+color: inherit;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+position: absolute;
+bottom: 20px;
+left: 20px;
+width: 40px;
+height: 40px;
+background-color: #fff;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.icon {
+display: inline-block;
+width: 30px;
+height: 30px;
+text-align: center;
+font-size: 19px;
+}
+
+/* Sidebar toggle icon */
+.toggle-icon {
+display: block;
+width: 20px;
+height: 20px;
+margin: 10px;
+background-color: #ccc;
+border-radius: 50%;
+}
+.nav-border {
+border-bottom: 1px solid #ccc;
+margin-top: 15px;
+margin-bottom: 10px;
+}
+</style>
+<div class="app-block-holder">
+    <div class="app-block">
+        <span class="app-block-logo" style="background-image:url('https://uploads.commoninja.com/searchengine/wordpress/gf-facebook-pixel-tracking.png'); position: relative;"></span>
+        <p>Pixel King</p>
+    </div>
+</div>
+<div class="app-wrapper">
+    <div class="app-content">
+        <main role="main">
+            <div class="app-container w-container">
+                <!-- Your Chat Plugin code -->
+
+                <div class="container tab_container">
+                    <!-- Start: Tabbed Panel -->
+                    <div class="panel panel-default">
+
+                        <span class="tooltipp" style="display: none;">How can i help you ?</span>
+                        <div>
+
+                        </div>
+
+                        <style>
+                            .upgrade {
+                                margin-top: 1%;
+                            }
+
+                            .scroll-to-top {
+                                position: fixed;
+                                right: 4rem;
+                                bottom: 5rem;
+                                display: none;
+                                width: 2.75rem;
+                                height: 2.75rem;
+                                text-align: center;
+                                color: #fff;
+                                line-height: 46px;
+                                z-index: +99;
+                            }
+
+                            .tooltipp {
+                                position: fixed;
+                                right: 1rem;
+                                bottom: 8rem;
+                                color: blue;
+                                background-color: #ffffff;
+                                line-height: 46px;
+                                z-index: +9;
+                                border-radius: 11px;
+                                padding: 5px;
+                                box-shadow: 0 0 0 1px rgba(0, 0, 0, .25);
+                            }
+                        </style>
+                        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"> </head>
+
+                        <body>
+
+                            <div class="sidebar">
+                                <nav class="sidebar-nav">
+                                  <ul class="nav-list">
+                                    <li class="nav-item">
+                                      <span class="nav-item-title">Navigation</span>
+                                    </li>
+                                    <li class="nav-item" id="pack-1">
+                                      <div class="nav-item-content">
+                                        <div class="nav-item-icon">
+                                            <span class="icon" style="padding-top: 5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+                                              </span>
+                                        </div>
+                                        <span class="nav-item-label">Facebook Multi pixels</span>
+                                      </div>
+                                    </li>
+                                    <li class="nav-item" id="pack-2">
+                                      <div class="nav-item-content">
+                                        <div class="nav-item-icon">
+                                            <span class="icon" style="padding-top: 5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
+                                              </span>
+                                        </div>
+                                        <span class="nav-item-label" onclick="showit('Pinterest')">Pinterest pixel</span>
+                                      </div>
+                                    </li>
+                                    <li class="nav-item" id="pack-3">
+                                      <div class="nav-item-content">
+                                        <div class="nav-item-icon">
+                                            <span class="icon" style="padding-top: 5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M384,32H64A64,64,0,0,0,0,96V416a64,64,0,0,0,64,64H384a64,64,0,0,0,64-64V96A64,64,0,0,0,384,32Zm-3.907,319.309-.083.1a32.364,32.364,0,0,1-8.717,6.823,90.26,90.26,0,0,1-20.586,8.2,12.694,12.694,0,0,0-3.852,1.76c-2.158,1.909-2.1,4.64-4.4,8.55a23.137,23.137,0,0,1-6.84,7.471c-6.707,4.632-14.244,4.923-22.23,5.23-7.214.274-15.39.581-24.729,3.669-3.761,1.245-7.753,3.694-12.377,6.533-11.265,6.9-26.68,16.353-52.3,16.353s-40.925-9.4-52.106-16.279c-4.657-2.888-8.675-5.362-12.543-6.64-9.339-3.08-17.516-3.4-24.729-3.67-7.986-.307-15.523-.6-22.231-5.229a23.085,23.085,0,0,1-6.01-6.11c-3.2-4.632-2.855-7.8-5.254-9.895a13.428,13.428,0,0,0-4.1-1.834,89.986,89.986,0,0,1-20.313-8.127,32.905,32.905,0,0,1-8.3-6.284c-6.583-6.757-8.276-14.776-5.686-21.824,3.436-9.338,11.571-12.111,19.4-16.262,14.776-8.027,26.348-18.055,34.433-29.884a68.236,68.236,0,0,0,5.985-10.567c.789-2.158.772-3.329.241-4.416a7.386,7.386,0,0,0-2.208-2.217c-2.532-1.676-5.113-3.353-6.882-4.5-3.27-2.141-5.868-3.818-7.529-4.98-6.267-4.383-10.65-9.04-13.4-14.245a28.4,28.4,0,0,1-1.369-23.584c4.134-10.924,14.469-17.706,26.978-17.706a37.141,37.141,0,0,1,7.845.83c.689.15,1.37.307,2.042.482-.108-7.43.058-15.357.722-23.119,2.358-27.261,11.912-41.589,21.874-52.994a86.836,86.836,0,0,1,22.28-17.931C188.254,100.383,205.312,96,224,96s35.828,4.383,50.944,13.016a87.169,87.169,0,0,1,22.239,17.9c9.961,11.406,19.516,25.709,21.874,52.995a231.194,231.194,0,0,1,.713,23.118c.673-.174,1.362-.332,2.051-.481a37.131,37.131,0,0,1,7.844-.83c12.5,0,22.82,6.782,26.971,17.706a28.37,28.37,0,0,1-1.4,23.559c-2.74,5.2-7.123,9.861-13.39,14.244-1.668,1.187-4.258,2.864-7.529,4.981-1.835,1.187-4.541,2.947-7.164,4.682a6.856,6.856,0,0,0-1.951,2.034c-.506,1.046-.539,2.191.166,4.208a69.015,69.015,0,0,0,6.085,10.792c8.268,12.1,20.188,22.313,35.454,30.407,1.486.772,2.98,1.5,4.441,2.258.722.332,1.569.763,2.491,1.3,4.9,2.723,9.2,6.01,11.455,12.153C387.821,336.915,386.269,344.7,380.093,351.309Zm-16.719-18.461c-50.313-24.314-58.332-61.918-58.689-64.749-.431-3.379-.921-6.035,2.806-9.472,3.594-3.328,19.541-13.19,23.965-16.278,7.33-5.114,10.534-10.219,8.16-16.495-1.66-4.316-5.686-5.976-9.961-5.976a18.5,18.5,0,0,0-3.993.448c-8.035,1.743-15.838,5.769-20.354,6.857a7.1,7.1,0,0,1-1.66.224c-2.408,0-3.279-1.071-3.088-3.968.564-8.783,1.759-25.925.373-41.937-1.884-22.032-8.99-32.948-17.432-42.6-4.051-4.624-23.135-24.654-59.536-24.654S168.53,134.359,164.479,139c-8.434,9.654-15.531,20.57-17.432,42.6-1.386,16.013-.141,33.147.373,41.937.166,2.756-.68,3.968-3.088,3.968a7.1,7.1,0,0,1-1.66-.224c-4.507-1.087-12.31-5.113-20.346-6.856a18.494,18.494,0,0,0-3.993-.449c-4.25,0-8.3,1.636-9.961,5.977-2.374,6.276.847,11.381,8.168,16.494,4.425,3.088,20.371,12.958,23.966,16.279,3.719,3.437,3.237,6.093,2.805,9.471-.356,2.79-8.384,40.394-58.689,64.749-2.946,1.428-7.96,4.45.88,9.331,13.88,7.628,23.111,6.807,30.3,11.43,6.093,3.927,2.5,12.394,6.923,15.449,5.454,3.76,21.583-.266,42.335,6.6,17.433,5.744,28.116,22.015,58.963,22.015s41.788-16.3,58.938-21.973c20.795-6.865,36.89-2.839,42.336-6.6,4.433-3.055.822-11.522,6.923-15.448,7.181-4.624,16.411-3.8,30.3-11.472C371.36,337.355,366.346,334.333,363.374,332.848Z"/></svg>
+                                               </span>
+                                        </div>
+                                        <span class="nav-item-label" onclick="showit('Snapchat')">Snapchat pixel</span>
+                                      </div>
+                                    </li>
+                                    <li class="nav-item" id="pack-4">
+                                      <div class="nav-item-content">
+                                        <div class="nav-item-icon">
+                                          <span class="icon" style="padding-top: 5px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+                                          </span>
+                                        </div>
+                                        <span class="nav-item-label" onclick="showit('Tiktok')">Tiktok pixel</span>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                  <div class="nav-border"></div>
+                                  <ul class="nav-list">
+                                    <li class="nav-item">
+                                      <span class="nav-item-title">Help</span>
+                                    </li>
+                                    <li class="nav-item" id="pack-7">
+                                      <div class="nav-item-content">
+                                        <a class="nav-item-link">
+                                          <div class="nav-item-icon">
+                                            <span class="icon" style="padding-top: 5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>
+                                            </span>
+                                          </div>
+                                          <span class="nav-item-label">Video Guide</span>
+                                        </a>
+                                      </div>
+                                    </li>
+                                    <li class="nav-item">
+                                      <div class="nav-item-content">
+                                        <a class="nav-item-link" href="/updateplanning">
+                                          <div class="nav-item-icon">
+                                            <span class="icon" style="padding-top: 5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>
+                                            </span>
+                                          </div>
+                                          <span class="nav-item-label">Update Planning</span>
+                                        </a>
+                                      </div>
+                                    </li>
+                                    <li class="nav-item">
+                                      <div class="nav-item-content">
+                                        <a class="nav-item-link" href="mailto:harrydevs26@gmail.com">
+                                          <div class="nav-item-icon">
+                                            <span class="icon" style="padding-top: 5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>
+                                            </span>
+                                          </div>
+                                          <span class="nav-item-label">Contact us</span>
+                                        </a>
+                                      </div>
+                                    </li>
+                                    <li class="Polaris-Navigation__ListItem">
+                                      <div class="Polaris-Navigation__ItemWrapper">
+    
+                                              <div id="google_translate_element"></div>
+    
+                                      </div>
+                                  </li>
+                                  </ul>
+                                </nav>
+                                <button type="button" class="sidebar-toggle" aria-hidden="true" aria-label="" tabindex="-1">
+                                  <span class="toggle-icon"></span>
+                                </button>
+                              </div>
+                        <div class="app-wrapper">
+                            <div class="app-content">
+                                <main role="main">
+
+                                    <style>
+                                        a.animated-button.victoria-one {
+                                            margin: 0;
+                                        }
+
+                                        .form-check-label {
+                                            margin-top: 2px;
+                                            margin-left: 5px;
+                                        }
+
+                                        .goog-logo-link,
+                                        .goog-logo-link:link,
+                                        .goog-logo-link:visited,
+                                        .goog-logo-link:hover,
+                                        .goog-logo-link:active {
+                                            display: none;
+                                        }
+
+                                        .checkbox {
+                                            margin-top: 5px;
+                                        }
+
+                                        .btn.btn-sm.animated-button.victoria-one {
+                                            margin-top: 10px;
+                                        }
+
+                                        .uninstall p {
+                                            color: black;
+                                        }
+                                        .tab-content {
+                                        padding: 20px;
+                                    }
+
+                                    .form-check-label.check-label {
+                                        font-weight: bold;
+                                    }
+
+                                    .switch {
+                                        position: relative;
+                                        display: inline-block;
+                                        width: 50px;
+                                        height: 25px;
+                                        margin-bottom: 0;
+                                    }
+
+                                    .switch input {
+                                        opacity: 0;
+                                        width: 0;
+                                        height: 0;
+                                    }
+
+                                    .slider {
+                                        position: absolute;
+                                        cursor: pointer;
+                                        top: 0;
+                                        left: 0;
+                                        right: 0;
+                                        bottom: 0;
+                                        background-color: #ccc;
+                                        transition: 0.4s;
+                                        border-radius: 50%;
+                                    }
+
+                                    .slider:before {
+                                        position: absolute;
+                                        content: "";
+                                        height: 19px;
+                                        width: 19px;
+                                        left: 3px;
+                                        bottom: 3px;
+                                        background-color: white;
+                                        transition: 0.4s;
+                                        border-radius: 50%;
+                                    }
+
+                                    input:checked + .slider {
+                                        background-color: #2e92ea;
+                                    }
+
+                                    input:checked + .slider:before {
+                                        transform: translateX(26px);
+                                    }
+
+                                    .slider.round {
+                                        border-radius: 34px;
+                                    }
+
+                                    .slider.round:before {
+                                        border-radius: 50%;
+                                    }
+
+
+                                    .google_trans {
+                                        margin-top: 30px;
+                                    }
+
+                                    .label_w strong {
+                                        font-weight: bold;
+                                    }
+
+                                    .input_h {
+                                        width: 100%;
+                                        padding: 10px;
+                                        border: 1px solid #ccc;
+                                        border-radius: 4px;
+                                        box-sizing: border-box;
+                                    }
+
+                                    .form-check.label_check {
+                                        margin-top: 10px;
+                                    }
+
+                                    .-Choice__HelpText {
+                                        margin-top: 5px;
+                                        font-size: 14px;
+                                        color: #777;
+                                    }
+
+                                    .form-check.label_check input[type="radio"],
+                                    .form-check.label_check input[type="checkbox"] {
+                                        margin-top: 5px;
+                                    }
+
+                                    #collectionRow {
+                                        margin-top: 10px;
+                                    }
+
+                                    .Polaris-Button {
+                                        display: inline-block;
+                                        margin-top: 5px;
+                                        padding: 10px 20px;
+                                        background-color: #3E4B56;
+                                        color: white;
+                                        text-decoration: none;
+                                        border-radius: 4px;
+                                    }
+
+                                    .table.pixel_table {
+                                        margin-top: 20px;
+                                        height: 300px;
+                                        overflow-y: auto;
+                                        border: 1px solid #ccc;
+                                        border-radius: 4px;
+                                    }
+
+                                    .table.pixel_table th,
+                                    .table.pixel_table td {
+                                        padding: 10px;
+                                        border-bottom: 1px solid #ccc;
+                                    }
+
+                                    .otherform {
+                                        margin-bottom: 20px;
+                                    }
+
+                                    .otherform .form-control {
+                                        width: 100%;
+                                        padding: 10px;
+                                        border: 1px solid #ccc;
+                                        border-radius: 4px;
+                                        box-sizing: border-box;
+                                    }
+
+                                    .fb_pixel_right {
+                                        margin-bottom: 20px;
+                                    }
+                                    .saveother {
+                                        display: inline-block;
+                                        padding: 10px 20px;
+                                        background-color: #3E4B56;
+                                        color: white;
+                                        text-decoration: none;
+                                        border-radius: 4px;
+                                    }
+
+                                    .fb_pixel_label {
+                                        font-weight: bold;
+                                        margin-top: 10px;
+                                    }
+
+                                    .fb_pixel_right {
+                                        margin-bottom: 20px;
+                                    }
+
+                                    .error-message {
+                                        color: red;
+                                        font-size: 14px;
+                                        margin-top: 5px;
+                                    }
+
+                                    .success-message {
+                                        color: green;
+                                        font-size: 14px;
+                                        margin-top: 5px;
+                                    }
+
+                                    .notification-message {
+                                        margin-top: 10px;
+                                        padding: 10px;
+                                        border: 1px solid #ccc;
+                                        border-radius: 4px;
+                                    }
+
+                                    .notification-message.success {
+                                        background-color: #E9F7EF;
+                                        border-color: #A3D3A8;
+                                    }
+
+                                    .notification-message.error {
+                                        background-color: #FBEAEA;
+                                        border-color: #DCA7A7;
+                                    }
+                                    
+                                    </style>
+                                    <div class="tab-content panel-body">
+
+                                        <!------------pixel-seeting------------>
+                                        <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                            <div class="">
+                                                <div class="row">
+                                                    <!-- Start: Toggle Switch -->
+                                                    <div class="col-md-6 col-6" style="margin-top: 30px;">
+
+                                                        <p><span class="form-check-label check-label">App Status:</span>
+                                                            <span><label class="switch">
+                                                            <input type="checkbox" name="status" value="1" id="changeStatus" <%= app_statu == "true" ? "checked" : "" %> >
+                                                             <span class="slider round"></span>
+                                                            </label>
+                                                             </span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-6 col-6 google_trans">
+                                                        <!--                                                        <div id="google_translate_element" class="lang"></div>-->
+                                                        <!--                                                        <script type="text/javascript">-->
+                                                        <!--                                                            function googleTranslateElementInit() {-->
+                                                        <!--                                                                new google.translate.TranslateElement({-->
+                                                        <!--                                                                    pageLanguage: 'en'-->
+                                                        <!--                                                                }, 'google_translate_element');-->
+                                                        <!--                                                            }-->
+                                                        <!--                                                        </script>-->
+                                                    </div>
+                                                    <!-- End: Toggle Switch -->
+                                                </div>
+                                            </div>
+                                            <div class="col-12 fb_pixel" id="pack-1-text">
+                                                <div class="row">
+
+                                                    <div class="fb_pixel_right">
+                                                        <form class="col" id="pixelForm">
+                                                            <input type="hidden" name="id" id="idInput">
+                                                            <div class="form-group">
+                                                                <label class="label_w">
+                                                                    <strong>Pixel ID</strong>
+                                                                    <br>
+                                                                </label>
+                                                                <input type="text" name="code" value="" id="code" class="form-group input_h" placeholder="Enter Your Facebook Pixel ID">
+                                                            </div>
+                                                            <div class="same">
+                                                                <div class="form-check label_check">
+                                                                    <input class="form-check-input" type="checkbox" name="api_convert" value="1" id="api_convert"  >
+                                                                    <label class="form-check-label check-label">Conversion API (solution for Apple devices)
+                                                                    </label>
+                                                                </div>
+
+                                                                <div class="Polaris-Choice__Descriptions">
+                                                                    <div class="Polaris-Choice__HelpText" id="PolarisRadioButton2HelpText">Conversion API helps Facebook collect more accurate data from visitors.</div>
+                                                                </div>
+                                                                <div style="display:none"  id="api_body">
+
+                                                                    <div class="form-group">
+                                                                        <label class="label_w">
+                                                                            <strong>Facebook Access Token</strong>
+                                                                            <br>
+                                                                        </label>
+                                                                        <input type="text" name="token_access" value="" id="token_access" class="form-group input_h" placeholder="">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="label_w">
+                                                                            <strong>Test Event Code</strong>
+                                                                            <br>
+                                                                        </label>
+                                                                        <input type="text" name="code_test" value="" id="code_test" class="form-group input_h" placeholder="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check label_check"><input class="form-check-input masterPixel" type="radio" name="type" value="master"  id="formCheck-1"><label class="form-check-label check-label" for="formCheck-1">All - Main / Backup Pixel (Master Pixel)&nbsp;<br></label></div>
+                                                            <div class="Polaris-Choice__Descriptions"><div class="Polaris-Choice__HelpText" id="PolarisRadioButton1HelpText">Pixel will fire on all pages</div></div>
+                                                            <div class="same">
+                                                                <div class="form-check label_check"><input class="form-check-input collectionPixel" type="radio" name="type" id="formCheck-2" value="collection"><label class="form-check-label check-label" for="formCheck-2">Collections Pixel&nbsp;<br></label></div>
+                                                                <div class="Polaris-Choice__Descriptions"><div class="Polaris-Choice__HelpText" id="PolarisRadioButton2HelpText">Pixel will fire only for the selected collection(s)</div></div>                                                            <div id="collectionRow" style="margin-top: 10px;">
+                                                                    <select class="" name="collections[]" id="collectionSelector" multiple="multiple" style="margin-top:5px;width:100%">
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div id="normalButtons" class="row" style="margin-top: 5px;margin-left: 0;">
+                                                                <!-- Start: Hover Button 1 -->
+                                                                <a class="Polaris-Button" id="add" style="color: white;">ADD THIS PIXEL</a>
+                                                            </div>
+
+                                                            <div id="editButtons" class="row buttons" style="display:none;margin-top: 5px;margin-left: 0;">
+                                                                <div class="fb-pixel-button">
+                                                                    <button id="updateButton" class="btn btn-default edit-btn">Update</button>
+                                                                    <button id="cancelButton" class="btn btn-default del-btn">Cancel</button>
+                                                                </div>
+                                                        </form>
+                                                    </div>
+                                                    <!-- End: Hover Button 1 -->
+                                                    <div class="table-responsive table pixel_table" id="dataTable" role="grid" aria-describedby="dataTable_info" style="height:300px">
+                                                        <table class="table my-0 list" id="dataTable">
+                                                            <thead class="pixel_thead">
+                                                            <tr>
+                                                                <th>PIXELS</th>
+                                                                <th>COLLECTIONS</th>
+                                                                <th>OPERATIONS</th>
+                                                                <th></th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr/>
+                                        <div class="col-12 fb_pixel" id="pack-2-text">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-8 fb_pixel_right">
+                                                    <form action="/otheradd" method="post" class="otherform">
+                                                        <div class="form-group" id="pack-2-text-1">
+                                                            <label for="">
+                                                                Pinterest Id
+                                                            </label>
+                                                            <input type="text" class="form-control" name="pinterestid" id="pintid"  placeholder="Paste Your Pixel Id">
+                                                            <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                Pinterest Pixel Tag implementation in 1-click
+                                                            </p>
+                                                        </div>
+                                                        <div class="form-group" id="pack-2-text-2">
+                                                            <label for="">
+                                                                Snapchat Id
+                                                            </label>
+                                                            <input type="text" class="form-control" name="snapchatid"  id="snpid" placeholder="Paste Your Pixel Id">
+                                                            <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                Snapchat Pixel Tag implementation in 1-click
+                                                            </p>
+                                                        </div>
+                                                        <div class="form-group" id="pack-2-text-3">
+                                                            <label for="">
+                                                                Tiktok Id
+                                                            </label>
+                                                            <input type="text" class="form-control" name="tiktok" id="tktid" placeholder="Paste Your Pixel Id">
+                                                            <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                Tiktok Pixel Tag implementation in 1-click
+                                                            </p>
+                                                        </div>
+                                                        <div class="form-group" id="pack-2-text-4">
+                                                            <label for="">
+                                                                Twitter Id
+                                                            </label>
+                                                            <input type="text" class="form-control" name="twitter" id="twtid" placeholder="Paste Your Pixel Id">
+                                                            <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                Twitter Pixel Tag implementation in 1-click
+                                                            </p>
+                                                        </div>
+                                                        <div class="form-group" id="pack-2-text-5">
+                                                            <label for="">
+                                                                Taboola Id
+                                                            </label>
+                                                            <input type="text" class="form-control" name="taboola" id="tblid"  placeholder="Paste Your Pixel Id">
+                                                            <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                Taboola Pixel Tag implementation in 1-click
+                                                            </p>
+                                                        </div>
+
+
+
+                                                    </form>
+                                                    <a class="btn btn-sm animated-button victoria-one saveother" style="color:white;">Submit</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        </a>
+
+                                        <div class="form-group" id="pack-2-text-6"  style="display: none">
+
+
+
+
+                                                    <div class="">
+                                                        <div class="row">
+                                                            <!-- Start: Toggle Switch -->
+
+                                                            <div class="col-md-6 col-6 google_trans">
+                                                                <!--                                                        <div id="google_translate_element" class="lang"></div>-->
+                                                                <!--                                                        <script type="text/javascript">-->
+                                                                <!--                                                            function googleTranslateElementInit() {-->
+                                                                <!--                                                                new google.translate.TranslateElement({-->
+                                                                <!--                                                                    pageLanguage: 'en'-->
+                                                                <!--                                                                }, 'google_translate_element');-->
+                                                                <!--                                                            }-->
+                                                                <!--                                                        </script>-->
+                                                            </div>
+                                                            <!-- End: Toggle Switch -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 fb_pixel" id="pack-1-text">
+                                                        <div class="row">
+
+                                                            <div class="fb_pixel_right vd_setting">
+
+                                                                <div class="Polaris-MediaCard"><div class="Polaris-MediaCard__MediaContainer"><iframe title="how to install meta pixel (facebook pixel) with API conversion no code needed" src="https://www.youtube.com/embed/Se6ePzyM3rI" width="100%" frameborder="0" allowfullscreen=""></iframe></div><div class="Polaris-MediaCard__InfoContainer"><div class="Polaris-Card__Section"><div class="Polaris-Stack Polaris-Stack--vertical Polaris-Stack--spacingTight"><div class="Polaris-Stack__Item"><div class="Polaris-MediaCard__Heading"><h2 class="Polaris-Heading">how to install meta pixel (facebook pixel) with API conversion no code needed</h2></div></div><div class="Polaris-Stack__Item"><p></p></div></div></div></div></div>
+
+
+                                                            </div>
+                                                            <div class="fb_pixel_right vd_setting"  >
+
+                                                                <div class="Polaris-MediaCard"><div class="Polaris-MediaCard__MediaContainer"><iframe title="How to check the Facebook Pixel is working or Not | Facebook Pixel Helper Extension
+" src="https://www.youtube.com/embed/ILHG59etn9s" width="100%" frameborder="0" allowfullscreen=""></iframe></div><div class="Polaris-MediaCard__InfoContainer"><div class="Polaris-Card__Section"><div class="Polaris-Stack Polaris-Stack--vertical Polaris-Stack--spacingTight"><div class="Polaris-Stack__Item"><div class="Polaris-MediaCard__Heading"><h2 class="Polaris-Heading">How to check the Facebook Pixel is working or Not | Facebook Pixel Helper Extension
+                                                                                        </h2></div></div><div class="Polaris-Stack__Item"><p></p></div></div></div></div></div>
+                                                            </div> <div class="fb_pixel_right vd_setting"  >
+
+                                                                <div class="Polaris-MediaCard"><div class="Polaris-MediaCard__MediaContainer"><iframe title="How to Add Pixel For Specific Collection/Niche ..." src="https://www.youtube.com/embed/AfmaZRyzrCI" width="100%" frameborder="0" allowfullscreen=""></iframe></div><div class="Polaris-MediaCard__InfoContainer"><div class="Polaris-Card__Section"><div class="Polaris-Stack Polaris-Stack--vertical Polaris-Stack--spacingTight"><div class="Polaris-Stack__Item"><div class="Polaris-MediaCard__Heading"><h2 class="Polaris-Heading">How to Add Pixel For Specific Collection/Niche | works with multi pixels
+                                                                                        </h2></div></div><div class="Polaris-Stack__Item"><p></p></div></div></div></div></div>
+                                                            </div>
+                                                            <!-- End: Hover Button 1 -->
+                                                        </div>
+                                                    </div>
+                                        </div>
+
+                                    </div>
+                                    <!------------pixel-seeting-close------------>
+
+
+
+
+
+                                    <!------------Faq------------>
+                                    <!------------Faq-close------------>
+
+                                    <!------------Uninstall------------>
+
+                                    <!------------Uninstall-close------------>
+
+                                </main>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <!-- End: Tabbed Panel -->
+
+
+
+
+                        <div id="fb-root"></div>
+
+
+
+
+                        <!--Start of Tawk.to Script-->
+                        <script>
+                            function showit(word) {
+                                var element = document.getElementById("alertElement");
+                                var message = element.innerHTML;
+                                message = `
+                                                <dl>
+
+                                                    <dd>
+                                                        To start tracking your events on ${word}, all you need to do is go to the Ads Manager, copy your Pixel ID, and paste it into the input box. Then, just click save and the tracking will automatically begin. You don't need to do anything else because we've already taken care of everything for you.
+
+                                                        <br>if you have any problem or issue with our app please contact us. 😊</dd>
+
+
+                                                </dl>
+                                    `;
+                                element.innerHTML = message;
+                            }
+
+                        </script>
+                        <!--End of Tawk.to Script-->
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                        <script src="./js/scriptapp.min.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+                        <script type="text/javascript">
+                            $('#api_convert').click(()=>{
+                                    console.log($('#api_convert').is(':checked'))
+                                    if($('#api_convert').is(':checked'))
+                                    {
+                                        $('#api_body').show()
+                                    }
+                                    else
+                                        $('#api_body').hide()
+
+                                }
+
+                            )
+
+
+                            $('document').ready(function () {
+                                let dataApp = <%- data %>
+                                    let app_statu = <%- app_statu %>
+                                    $('#snpid').val(dataApp.outherpixels.snapchat)
+                                $('#pintid').val(dataApp.outherpixels.pinterest)
+                                $('#tblid').val(dataApp.outherpixels.taboola)
+                                $('#tktid').val(dataApp.outherpixels.tiktok)
+                                $('#twtid').val(dataApp.outherpixels.twitter)
+                                if(dataApp.outherpixels) {
+                                    $('#snpid').val(dataApp.outherpixels.snapchat)
+                                    $('#pintid').val(dataApp.outherpixels.pinterest)
+                                    $('#tblid').val(dataApp.outherpixels.taboola)
+                                    $('#tktid').val(dataApp.outherpixels.tiktok)
+                                    $('#twtid').val(dataApp.outherpixels.twitter)
+                                }
+                                // $('#snpid').val(dataApp.)
+                                let pixels = dataApp.fbpixels;
+                                for(let i=0;i<pixels.length;i++)
+                                {
+                                    addPixelRow(dataApp.fbpixels[i])
+                                }
+                                //
+                            })
+                            toastr.options = {
+                                "closeButton": true,
+                                "closeClass": "toast-close-button",
+                                "closeDuration": 300,
+                                "closeEasing": "swing",
+                                "closeHtml": "<button><i class=\"icon-off\"><\/i><\/button>",
+                                "closeMethod": "fadeOut",
+                                "closeOnHover": true,
+                                "containerId": "toast-container",
+                                "debug": false,
+                                "escapeHtml": false,
+                                "extendedTimeOut": 10000,
+                                "hideDuration": 1000,
+                                "hideEasing": "linear",
+                                "hideMethod": "fadeOut",
+                                "iconClass": "toast-info",
+                                "iconClasses": {
+                                    "error": "toast-error",
+                                    "info": "toast-info",
+                                    "success": "toast-success",
+                                    "warning": "toast-warning"
+                                },
+                                "messageClass": "toast-message",
+                                "newestOnTop": false,
+                                "onHidden": null,
+                                "onShown": null,
+                                "positionClass": "toast-bottom-center",
+                                "preventDuplicates": true,
+                                "progressBar": false,
+                                "progressClass": "toast-progress",
+                                "rtl": false,
+                                "showDuration": 300,
+                                "showEasing": "swing",
+                                "showMethod": "fadeIn",
+                                "tapToDismiss": true,
+                                "target": "body",
+                                "timeOut": 5000,
+                                "titleClass": "toast-title",
+                                "toastClass": "toast"
+                            };
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        <script>
+                            $(document).ready(function() {
+                                $('.clip').click(function() {
+                                    toastr.remove();
+                                    var copyText = document.getElementById("copyy");
+                                    copyText.select();
+                                    document.execCommand("copy");
+                                    toastr.success('Copy text success');
+                                });
+                                $(document).on('DOMNodeInserted', '.goog-te-gadget', function(e) {
+                                    this.childNodes.forEach(function(element, index) {
+                                        if (element.nodeName === "#text") {
+                                            element.remove();
+                                        }
+                                    });
+                                });
+                                $('#ascript').show();
+                                $('#ascriptbtnn:checkbox').change(function() {
+                                    $.ajax({
+                                        url: "/add",
+                                        method: "GET",
+                                        success: function(response) {
+                                            toastr.remove();
+                                            if (response.error) {
+                                                toastr.error(response.error_data);
+                                            } else {
+                                                toastr.success('Status changed successfully');
+                                            }
+
+                                        }
+                                    });
+                                    if ($(this).prop('checked') == true) {
+                                        $('#ascript').show(1000);
+                                    } else {
+                                        $('#ascript').hide(1000);
+                                    }
+                                });
+                                $('#changeStatus').change(function() {
+                                    let statu = $('#changeStatus').is(":checked")
+                                    $.ajax({
+                                        url: "/Change-Status",
+                                        method: "POST",
+                                        dataType: "json",
+                                        data: {
+                                            statu: statu
+                                        },
+                                        success: function(response) {
+                                            toastr.remove();
+                                            if (response.status != true) {
+                                                toastr.error(response.error_data);
+                                            } else {
+                                                toastr.success('Status changed successfully');
+                                            }
+
+                                        }
+                                    });
+                                });
+                                // $('#list').paginate({perPage:10});
+
+                                /////////////VARIABLES////////////////////
+                                let selector = $('#collectionSelector');
+                                let idInput = $('#idInput');
+                                let collectionRow = $('#collectionRow');
+                                let masterButton = $('.masterPixel');
+                                let collectionButton = $('.collectionPixel');
+                                let settingSelector = $('#setting');
+                                let normalButtons = $('#normalButtons');
+                                let editButtons = $('#editButtons');
+                                let updateButton = $('#updateButton');
+                                let cancelButton = $('#cancelButton');
+                                let preferenceButton = $('#preferenceButton');
+                                let messageButton = $('#messageButton');
+                                /////////////END VARIABLES//////////////
+
+                                //////////////CLICK LISTENERS//////////////
+
+                                selector.select2({
+                                    placeholder: "Select one or more collections"
+                                });
+                                //  $('.select-box').select2({
+                                //       placeholder: 'Select an option'
+                                //     });
+                                masterMode();
+                                collectionButton.on('click', function() {
+                                    collectionMode();
+                                });
+                                masterButton.on('click', function() {
+                                    masterMode();
+                                })
+                                cancelButton.on('click', function(e) {
+                                    $('.addd').show();
+                                    e.preventDefault();
+                                    normalMode();
+                                });
+                                updateButton.on('click', function(e) {
+                                    e.preventDefault();
+                                    updatePixel();
+                                });
+
+                                messageButton.on('click', function(e) {
+                                    e.preventDefault();
+                                    sendMessage();
+                                });
+
+                                $('.btn').click(function(e) {
+                                    if ($(this).hasClass('edit-btn') || $(this).attr('id') == 'cancelButton' || $(this).hasClass('clip') || $(this).hasClass('upgrade')) return;
+                                    toastr.info('Please Wait!');
+                                });
+
+                                $('#add').click(function(e) {
+                                    e.preventDefault();
+                                    addPixel();
+                                });
+
+                                $('#setting').change(function() {
+                                    toastr.info('', 'Please Wait!');
+                                    updateSetting();
+                                });
+
+                                $('body').on('click', '.del-btn', function() {
+                                    let id = $(this).attr('pixelId');
+                                    deletePixel(id);
+                                    normalMode();
+                                    resetInput();
+                                });
+
+                                $('body').on('click', '.edit-btn', function() {
+
+                                    editMode();
+                                    let id = $(this).attr('pixelId');
+                                    editPixel(id);
+                                });
+                                $('body').on('click', '.saveother', function() {
+                                    updateother();
+                                });
+
+
+                                //////////////END LISTENERS/////////////////
+
+                                ///////////////FUNCTIONS/////////////////
+
+                                function addPixel() {
+                                    var selText=[];
+                                    $('#collectionSelector option:selected').each(function () {
+                                        var $this = $(this);
+                                        if ($this.length) {
+                                            selText.push($this.text())
+                                        }
+                                    });
+                                    let code = $('#code').val();
+                                    let collections = $('#collectionSelector').val();
+                                    let type = $("input[name='type']:checked").val();
+                                    let id = Math.floor(Math.random() * 1000);
+                                    let test_code = '';
+                                    let accesstoken = '';
+                                    if($('#api_convert').is(':checked'))
+                                    {
+                                        console.log('here ')
+                                        accesstoken = $('#token_access').val();
+                                        test_code = $('#code_test').val();
+                                    }
+
+
+                                    collections = JSON.stringify(collections)
+                                    $.ajax({
+                                        url: "/addpixel",
+                                        method: "POST",
+                                        dataType: "json",
+                                        data: {
+                                            type: type,
+                                            accss_token :accesstoken,
+                                            test_code : test_code,
+                                            code: code,
+                                            collections: collections,
+                                            id : id,
+                                            colname :JSON.stringify(selText)
+                                        },
+                                        success: function(response) {
+                                            resetInput();
+                                            toastr.remove();
+                                            if (!code.length) {
+                                                toastr.error("Please add Valid Id");
+                                            } else {
+                                                toastr.success('Pixel added successfully');
+                                                addPixelRow(response.pixel);
+                                            }
+
+                                        }
+                                    });
+                                }
+
+                                function updatePixel() {
+                                    var selText=[];
+                                    $('#collectionSelector option:selected').each(function () {
+                                        var $this = $(this);
+                                        if ($this.length) {
+                                            selText.push($this.text())
+                                        }
+                                    })
+                                    let code = $('#code').val();
+                                    let collections = $('#collectionSelector').val();
+                                    let type = $("input[name='type']:checked").val();
+                                    let id = $('#idInput').val();
+                                    let test_code = '';
+                                    let accesstoken = '';
+                                    if($('#api_convert').is(':checked'))
+                                    {
+                                        console.log('here ')
+                                        accesstoken = $('#token_access').val();
+                                        test_code = $('#code_test').val();
+                                    }
+
+
+                                    $('#pixelRow' + id).remove();
+                                    collections = JSON.stringify(collections)
+                                    $.ajax({
+                                        url: "/update_pixel",
+                                        method: "POST",
+                                        dataType: "json",
+                                        data: {
+                                            shop: '',
+                                            id: id,
+                                            code: code,
+                                            collections: collections,
+                                            type: type,
+                                            colname :JSON.stringify(selText),
+                                            test_code : test_code,
+                                            accss_token : accesstoken,
+                                            code: code,
+                                        },
+                                        success: function(response) {
+                                            resetInput();
+                                            toastr.remove();
+                                            if (response.error) {
+                                                toastr.error(response.error_data);
+                                            } else {
+                                                toastr.success('Pixel updated successfully');
+                                                addPixelRow(response.pixel);
+                                                normalMode();
+                                            }
+
+                                        }
+                                    });
+                                }
+
+                                function deletePixel(id) {
+                                    $.ajax({
+                                        url: "/delete",
+                                        method: "POST",
+                                        data: {
+                                            shop: '',
+                                            id: id
+                                        },
+                                        success: function(response) {
+                                            toastr.remove();
+                                            if (response.error) {
+                                                toastr.error(response.error_data);
+                                            } else {
+                                                $('#pixelRow' + id).remove();
+                                                toastr.success(response.message);
+                                            }
+                                        }
+                                    });
+                                }
+
+                                function updateSetting() {
+                                    let value = $('#setting').val();
+
+                                    $.ajax({
+                                        url: "/update",
+                                        method: "POST",
+                                        data: {
+                                            shop:'',
+                                            setting: value,
+                                        },
+                                        success: function(response) {
+                                            toastr.remove();
+                                            if (response.error) {
+                                                toastr.error(response.error_data);
+                                            } else {
+                                                toastr.success(response.message);
+                                            }
+
+                                        }
+                                    });
+                                }
+
+                                function updateother() {
+                                    $.ajax({
+                                        url: "/otheradd",
+                                        method: "POST",
+                                        data: $('.otherform').serialize(),
+                                        success: function(response) {
+                                            toastr.remove();
+                                            if (response.error) {
+                                                toastr.error(response.error_data);
+                                            } else {
+                                                toastr.success(response.message);
+                                            }
+
+                                        }
+                                    });
+                                }
+
+                                function editPixel(id) {
+                                    let type = $('#type' + id).text();
+                                    let collections;
+                                    let access_token = $('#accss_token'+id).attr( "value")
+                                    let test_code = $('#test_code'+id).attr( "value")
+
+                                    if(test_code !=='' && test_code != null)
+                                    {
+                                        $('#token_access').val(access_token);
+                                        $('#code_test').val(test_code);
+                                        $('#api_convert').prop( "checked", true );
+                                        $('#api_body').show()
+                                    }
+                                    else {
+
+                                        $('#api_convert').prop( "checked", false );
+                                        $('#api_body').hide()
+                                    }
+                                    $('#code').val($('#code' + id).text());
+                                    idInput.val(id);
+                                    if (type == 'collection') {
+                                        collectionMode();
+                                        collections = $('#collections' + id).text().split(' ').join('').split(',');
+                                        $("#collectionSelector option").each(function(indexx, item) {
+                                            var vall = $(this).val();
+                                            collections.forEach(function(item2, index) {
+                                                var coll = item2;
+                                                if (parseInt(coll) == parseInt(vall)) {
+                                                    $(item).prop('selected', true);
+                                                }
+                                            });
+                                        });
+                                        $('#collectionSelector').trigger('change');
+                                    } else {
+                                        masterMode();
+                                    }
+                                }
+
+                                function resetInput() {
+                                    $('#collectionRow').hide();
+                                    $('#code').val('');
+                                    $('#token_access').val('');
+                                    $('#code_test').val('');
+                                    $('#collectionSelector').val('');
+                                    $("#masterPixel").prop("checked", true);
+                                }
+
+                                function resetMessageInput() {
+                                    $('#email').val('');
+                                    $('#subject').val('');
+                                    $('#message').val('');
+                                }
+
+                                function masterMode() {
+                                    masterButton.prop("checked", true);
+                                    collectionRow.hide();
+                                }
+
+
+
+                                function collectionMode() {
+                                    collectionButton.prop("checked", true);
+                                    collectionRow.show();
+                                }
+
+                                function editMode() {
+                                    normalButtons.hide();
+                                    editButtons.show();
+                                }
+
+                                function normalMode() {
+                                    masterMode();
+                                    editButtons.hide();
+                                    normalButtons.show();
+                                    $('#code').val('');
+                                    $('#collectionSelector').val('');
+                                    $('#token_access').val('');
+                                    $('#code_test').val('');
+                                }
+
+
+                                ///////////////END FUNCTIONS//////////////
+                            });
+                        </script>
+                        <script>
+                            var st = new XMLHttpRequest();
+                            var shop =getCookie('shop')
+                            var url = "https://multi-pixels.com/collection?store=" +shop;
+
+                            st.open("GET", url, true);
+                            st.onreadystatechange = function () {
+                                if (st.readyState === 4 && st.status === 200) {
+                                    var _response = this.responseText
+                                    var collection = JSON.parse(_response)
+                                    console.log( collection.collectinosId.custom_collections)
+                                    let  collections = collection.collectinosId.custom_collections
+                                    collections =     collections.concat(collection.collectinosIdS.smart_collections)
+
+                                    for (let i =0 ;i<collections.length;i++)
+                                    {
+                                        $('#collectionSelector').append($('<option>', {
+                                            value: collections[i].id,
+                                            text: collections[i].title
+                                        }));
+                                    }
+                                }
+                            };
+                            function getCookie(name) {
+                                const value = `; ${document.cookie}`;
+                                const parts = value.split(`; ${name}=`);
+                                if (parts.length === 2) return parts.pop().split(';').shift();
+                            }
+                            st.send();
+                        </script>
+
+                       <!--  <script>
+                            const pack1 = document.getElementById("pack-1");
+                            const pack2 = document.getElementById("pack-2");
+                            const pack3 = document.getElementById("pack-3");
+                            const pack4 = document.getElementById("pack-4");
+                            const pack5 = document.getElementById("pack-5");
+                            const pack6 = document.getElementById("pack-6");
+                            const pack1text = document.getElementById("pack-1-text");
+                            const pack2text = document.getElementById("pack-2-text");
+                            const pack2text1 = document.getElementById("pack-2-text-1");
+                            const pack2text2 = document.getElementById("pack-2-text-2");
+                            const pack2text3 = document.getElementById("pack-2-text-3");
+                            const pack2text4 = document.getElementById("pack-2-text-4");
+                            const pack2text5 = document.getElementById("pack-2-text-5");
+                            pack2.style.borderBottom = "none";
+                            pack1text.style.display = "block";
+                            pack1.classList.add("active");
+                            pack2text.style.display = "none";
+
+                            pack1.onclick = function(){
+                                pack1text.style.display = "block";
+                                pack2text.style.display = "none";
+                                pack2.style.borderBottom = "none";
+                                pack1.classList.add("active")
+                                pack2.classList.remove("active");
+                                pack5.classList.remove("active");
+                                pack2.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.remove("active");
+                            }
+                            pack2.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "block";
+                                pack2text2.style.display = "none";
+                                pack2text3.style.display = "none";
+                                pack2text4.style.display = "none";
+                                pack2text5.style.display = "none";
+                                pack1.style.borderBottom = "none";
+                                pack2.classList.add("active");
+                                pack1.classList.remove("active")
+                                pack5.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.remove("active");
+                            }
+                            pack3.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "none";
+                                pack2text2.style.display = "block";
+                                pack2text3.style.display = "none";
+                                pack2text4.style.display = "none";
+                                pack2text5.style.display = "none";
+                                pack1.style.borderBottom = "none";
+                                pack2.classList.remove("active");
+                                pack1.classList.remove("active");
+                                pack2.classList.add("active");
+                                pack5.classList.remove("active");
+                                pack2.classList.remove("active");
+                                pack3.classList.add("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.remove("active");
+                            }
+                            pack4.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "none";
+                                pack2text2.style.display = "none";
+                                pack2text3.style.display = "block";
+                                pack2text4.style.display = "none";
+                                pack2text5.style.display = "none";
+                                pack1.style.borderBottom = "none";
+                                pack2.classList.remove("active");
+                                pack1.classList.remove("active")
+                                pack5.classList.remove("active");
+                                pack2.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.add("active");
+                                pack6.classList.remove("active");
+                            }
+                            pack5.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "none";
+                                pack2text2.style.display = "none";
+                                pack2text3.style.display = "none";
+                                pack2text4.style.display = "block";
+                                pack2text5.style.display = "none";
+                                pack1.style.borderBottom = "none";
+                                pack2.classList.remove("active");
+                                pack5.classList.add("active");
+                                pack1.classList.remove("active")
+                                pack2.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.remove("active");
+                            }
+                            pack6.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "none";
+                                pack2text2.style.display = "none";
+                                pack2text3.style.display = "none";
+                                pack2text4.style.display = "none";
+                                pack2text5.style.display = "block";
+                                pack1.style.borderBottom = "none";
+                                pack2.classList.remove("active");
+                                pack5.classList.remove("active");
+                                pack1.classList.remove("active")
+                                pack2.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.add("active");
+                            }
+
+                        </script> -->
+
+
+                     <script>
+                            const pack1 = document.getElementById("pack-1");
+                            const pack2 = document.getElementById("pack-2");
+                            const pack3 = document.getElementById("pack-3");
+                            const pack4 = document.getElementById("pack-4");
+                            const pack5 = document.getElementById("pack-5");
+                            const pack6 = document.getElementById("pack-6");
+                            const pack7 = document.getElementById("pack-7");
+                            const pack1text = document.getElementById("pack-1-text");
+                            const pack2text = document.getElementById("pack-2-text");
+                            const pack2text1 = document.getElementById("pack-2-text-1");
+                            const pack2text2 = document.getElementById("pack-2-text-2");
+                            const pack2text3 = document.getElementById("pack-2-text-3");
+                            const pack2text4 = document.getElementById("pack-2-text-4");
+                            const pack2text5 = document.getElementById("pack-2-text-5");
+                            const pack2text6 = document.getElementById("pack-2-text-6");
+
+                            pack2.style.borderBottom = "none";
+                            pack1text.style.display = "block";
+                            pack1.classList.add("active");
+                            pack2text.style.display = "none";
+
+                            pack1.onclick = function(){
+                                pack1text.style.display = "block";
+                                pack2text.style.display = "none";
+                                pack2.style.borderBottom = "none";
+                                pack2text6.style.display = "none";
+
+                                pack1.classList.add("active")
+                                pack2.classList.remove("active");
+                                pack5.classList.remove("active");
+                                pack2.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.remove("active");
+                                pack7.classList.remove("active");
+
+                            }
+                            pack2.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "block";
+                                pack2text2.style.display = "none";
+                                pack2text3.style.display = "none";
+                                pack2text4.style.display = "none";
+                                pack2text5.style.display = "none";
+                                pack1.style.borderBottom = "none";
+                                pack2text6.style.display = "none";
+
+                                pack2.classList.add("active");
+                                pack1.classList.remove("active")
+                                pack5.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.remove("active");
+                                pack7.classList.remove("active");
+
+                            }
+                            pack3.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "none";
+                                pack2text2.style.display = "block";
+                                pack2text3.style.display = "none";
+                                pack2text4.style.display = "none";
+                                pack2text5.style.display = "none";
+                                pack2text6.style.display = "none";
+
+                                pack1.style.borderBottom = "none";
+                                pack2.classList.remove("active");
+                                pack1.classList.remove("active");
+                                pack2.classList.add("active");
+                                pack5.classList.remove("active");
+                                pack2.classList.remove("active");
+                                pack3.classList.add("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.remove("active");
+                                pack7.classList.remove("active");
+
+                            }
+                            pack4.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "none";
+                                pack2text2.style.display = "none";
+                                pack2text3.style.display = "block";
+                                pack2text4.style.display = "none";
+                                pack2text5.style.display = "none";
+                                pack2text6.style.display = "none";
+                                pack7.classList.remove("active");
+
+                                pack1.style.borderBottom = "none";
+
+                                pack2.classList.remove("active");
+                                pack1.classList.remove("active")
+                                pack5.classList.remove("active");
+                                pack2.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.add("active");
+                                pack6.classList.remove("active");
+                            }
+                            pack5.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "none";
+                                pack2text2.style.display = "none";
+                                pack2text3.style.display = "none";
+                                pack2text4.style.display = "block";
+                                pack2text5.style.display = "none";
+                                pack2text6.style.display = "none";
+                                pack7.classList.remove("active");
+
+                                pack1.style.borderBottom = "none";
+                                pack2.classList.remove("active");
+                                pack5.classList.add("active");
+                                pack1.classList.remove("active")
+                                pack2.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.remove("active");
+                            }
+                            pack6.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "block";
+                                pack2text1.style.display = "none";
+                                pack2text2.style.display = "none";
+                                pack2text3.style.display = "none";
+                                pack2text4.style.display = "none";
+                                pack2text6.style.display = "none";
+                                pack7.classList.remove("active");
+
+                                pack2text5.style.display = "block";
+                                pack1.style.borderBottom = "none";
+                                pack2.classList.remove("active");
+                                pack5.classList.remove("active");
+                                pack1.classList.remove("active")
+                                pack2.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.add("active");
+                            }
+                            pack7.onclick = function(){
+                                pack1text.style.display = "none";
+                                pack2text.style.display = "none";
+                                pack2text1.style.display = "none";
+                                pack2text2.style.display = "none";
+                                pack2text3.style.display = "none";
+                                pack2text4.style.display = "none";
+                                pack2text5.style.display = "none";
+                                pack2text6.style.display = "block";
+                                pack1.style.borderBottom = "none";
+                                pack2.classList.remove("active");
+                                pack1.classList.remove("active")
+                                pack5.classList.remove("active");
+                                pack2.classList.remove("active");
+                                pack3.classList.remove("active");
+                                pack4.classList.remove("active");
+                                pack6.classList.remove("active");
+                                pack7.classList.add("active");
+
+                            }
+
+
+
+
+
+                        </script>
+
+
+<script src="//code.tidio.co/dfdl0swemfthogdf09ho46h9uswbdznf.js" async></script>
+                        </body>
+
+</html>

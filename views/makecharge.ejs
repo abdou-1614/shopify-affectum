@@ -1,0 +1,325 @@
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Plans &amp; Pricing | Announcment Bar Maker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script src="./assts/jquery.min.js"></script>
+    <script src="./assts/jquery-modal.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="./assts/uptown.min.css">
+    <link type="text/css" rel="stylesheet" href="./assts/style.css">
+    <script type="text/javascript" src="./assts/jquery.fontselect.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/polaris@11.0.1/build/cjs/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./assts/jquery-modal.min.css">
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="theme-color" content="#ffffff">
+    <style hs-beacon="active" data-styled-version="5.1.1"></style>
+    <style>
+        section {
+            flex-direction: column;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #f2f2f2;
+        }
+        
+        li {
+          margin-bottom: 15px;
+          list-style: none;
+        }
+        
+        .Polaris-Layout {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .Polaris-Layout__Section {
+            flex-basis: calc(50% - 20px);
+        }
+        
+        .Polaris-Card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .Polaris-Card--subdued {
+            background-color: white;
+            border: 2px solid rgb(242, 226, 2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        
+        }
+        
+        .Polaris-Card__Section {
+            /* Custom styles for card section */
+            /* Example: Background color and padding */
+            padding: 20px;
+        }
+        
+        .Polaris-Badge {
+            /* Custom styles for badge */
+            /* Example: Border radius and background color */
+            border-radius: 4px;
+            background-color: #ffcc00;
+            color: #ffffff;
+            padding: 4px 8px;
+        }
+        
+        .Polaris-Heading {
+            /* Custom styles for heading */
+            /* Example: Font size and color */
+            font-size: 24px;
+            color: #333333;
+        }
+        
+        .Polaris-DisplayText {
+            /* Custom styles for display text */
+            /* Example: Font weight and color */
+            font-weight: bold;
+            color: #333333;
+        }
+        
+        .Polaris-TextStyle--subdued {
+            /* Custom styles for subdued text */
+            /* Example: Font style and color */
+            font-style: italic;
+            color: #999999;
+        }
+        
+        .Polaris-Divider {
+            /* Custom styles for divider */
+            /* Example: Border style and color */
+            border-top: 1px solid #dddddd;
+            margin: 10px 0;
+        }
+        
+        .Polaris-Label {
+            /* Custom styles for label */
+            /* Example: Font weight and color */
+            font-weight: bold;
+            color: #333333;
+        }
+        
+        .Polaris-List {
+            /* Custom styles for list */
+            /* Example: Margin and padding */
+            margin: 10px 0;
+            padding: 0;
+        }
+        
+        .Polaris-Button {
+            /* Custom styles for button */
+            /* Example: Background color, text color, and padding */
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        #charge_modal {
+            /* Custom styles for modal */
+            /* Example: Centering the modal */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            margin-top: 10px;
+        }
+        
+        .Polaris-Modal__Dialog {
+            /* Custom styles for modal dialog */
+            /* Example: Border radius and box shadow */
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .Polaris-Modal__Title {
+            /* Custom styles for modal title */
+            /* Example: Font weight and color */
+            font-weight: bold;
+            color: #333333;
+        }
+        
+        .Polaris-Hr {
+            /* Custom styles for horizontal rule */
+            /* Example: Border style and color */
+            border: none;
+            border-top: 1px solid #dddddd;
+            margin: 10px 0;
+        }
+        
+        .Polaris-TextContainer {
+            /* Custom styles for text container */
+            /* Example: Margin and padding */
+            margin: 10px 0;
+            padding: 0;
+        }
+        
+        
+            </style>
+</head>
+<body>
+<script>
+    let planning;
+</script>
+
+
+<div class="header-container">
+
+</div>
+<h1 class="Polaris-Heading" style="margin-top: 70px;">Plans &amp; Pricing</h1>
+<p class="Polaris-TextStyle--subdued">Choose the best plan for your needs</p>
+<section>
+    <div class="Polaris-Layout">
+        <div class="Polaris-Layout__Section">
+            <div class="Polaris-Card">
+                <div class="Polaris-Card__Section">
+                    <h2 class="Polaris-Heading">BASIC PLAN</h2>
+                    <h1 class="Polaris-DisplayText">$3.95</h1>
+                    <h6 class="Polaris-TextStyle--subdued">PER MONTH</h6>
+                    <div class="Polaris-Divider"></div>
+                    <div class="Polaris-Label">Unlimited FB Pixel Id's</div>
+                    <ul class="Polaris-List">
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Backup Pixels</li>
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Add Multiple Facebook Pixels</li>
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Add Pixels to Collections</li>
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Technical Live Support</li>
+                    </ul>
+                    <% planning = JSON.stringify(data)
+                    planning = JSON.parse(planning)
+                    %>
+                    <%   if(planning === "BASIC"){ %>
+                            <div class="Polaris-Button Polaris-Button--primary" style="pointer-events: none; cursor: default; text-decoration: none; color: black; background-color: aquamarine;">Current Plan</div>
+                    <% } else { %>
+                        <% console.log(planning) %>
+                            <div class="Polaris-Button Polaris-Button--primary" onclick="loadDoc('BASIC')"  data-plan="Basic">Start Free Trial</div>
+                    <%  } %>
+                </div>
+            </div>
+        </div>
+
+        <div class="Polaris-Layout__Section">
+            <div class="Polaris-Card Polaris-Card--subdued">
+                <div class="Polaris-Card__Section">
+                    <h2 class="Polaris-Heading">PLUS PLAN</h2>
+                    <h1 class="Polaris-DisplayText">$5.95</h1>
+                    <h6 class="Polaris-TextStyle--subdued">PER MONTH</h6>
+                    <div class="Polaris-Divider"></div>
+                    <div class="Polaris-Label">Unlimited FB Pixel's + Tiktok & Pinterest Pixel</div>
+                    <ul class="Polaris-List">
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Everything in Basic Plan</li>
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Pinterest Pixel</li>
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Tiktok Pixel</li>
+                        <li>
+                        </li></ul>
+        
+                    <%   if(planning === "PLUS"){%>
+                            <div class="Polaris-Button Polaris-Button--primary">Current Plan</div>
+                    <% } else{%>
+                            <div class="Polaris-Button Polaris-Button--primary" onclick="loadDoc('PLUS')"  data-plan="PLUS">Start Free Trial</div>
+                    <%  }%>
+                </div>
+            </div>
+        </div>
+
+    <div class="Polaris-Layout">
+        <div class="Polaris-Layout__Section">
+            <div class="Polaris-Card">
+                <div class="Polaris-Card__Section">
+                    <h2 class="Polaris-Heading">PRO PLAN</h2>
+                    <h1 class="Polaris-DisplayText">$7.95</h1>
+                    <h6 class="Polaris-TextStyle--subdued">PER MONTH</h6>
+                    <div class="Polaris-Divider"></div>
+                    <div class="Polaris-Label">All Pixels </div>
+                    <ul class="Polaris-List">
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Everything in Basic &amp; Plus Plans</li>
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Snapchat Pixel</li>
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Taboola Pixel</li>
+                        <li><i class="fa fa-check" style="margin-right: 5px;"></i>Custom Pixels</li>
+                    </ul>
+                    <%   if(planning === "PRO"){%>
+                            <div class="Polaris-Button Polaris-Button--primary">Current Plan</div>
+                    <% } else {%>
+                            <div class="Polaris-Button Polaris-Button--primary"  onclick="loadDoc('PRO')"  data-plan="PRO">Start Free Trial</div>
+                    <%  }%>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+
+
+
+<div id="charge_modal" class="mod">
+    <div class="Polaris-Modal">
+        <div class="Polaris-Modal__Header">
+            <h4 class="Polaris-Modal__Title">Are you sure?</h4>
+        </div>
+        <div class="Polaris-Modal__Body">
+        <hr class="Polaris-Hr">
+            <div class="Polaris-TextContainer">
+                <p>Do you really want to cancel your subscription? You'll lose access to premium features.</p>
+        
+            </div>
+            <hr class="Polaris-Hr">
+            <div class="row">
+                <div class="Polaris-Stack Polaris-Stack--vertical">
+                    <div class="Polaris-Stack__Item">
+                        <div class="Polaris-ButtonGroup">
+                            <button class="Polaris-Button Polaris-Button--primary charge-mod_confirm">Yes</button>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function loadDoc(data) {
+        let st = new XMLHttpRequest();
+        let shop =getCookie('shop')
+        let url = "/updatepackage?plan="+data;
+        st.open("GET", url, true);
+        st.onreadystatechange = function () {
+            if (st.readyState === 4 && st.status === 200) {
+                var _response = this.responseText
+              //  var collections = JSON.parse(_response)
+             location.href = _response;
+              console.log(_response)
+            }
+        };
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+        st.send();
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "name": "templateshopify",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "cookie": "^0.4.1",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "cron": "^2.2.0",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "^4.16.4",
+    "facebook-nodejs-business-sdk": "^14.0.0",
+    "fs": "0.0.1-security",
+    "http-errors": "~1.6.3",
+    "iso-3166-1-alpha-2": "^1.0.0",
+    "md5": "^2.3.0",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.3.3",
+    "nonce": "^1.0.4",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.2",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.0.0",
+    "postcss": "^8.1.9"
+  }
+}

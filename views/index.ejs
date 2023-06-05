@@ -1,0 +1,1558 @@
+<html>
+<head>
+    <meta charset="utf-8">
+
+
+    <title>King Pixels |Best Pixels App </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa:300,400">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/polaris@11.0.1/build/cjs/index.min.js"></script>
+
+    <style>
+        main {
+            margin-left: 40px !important;
+        }
+        .goog-te-gadget .goog-te-combo {
+            font-size: 14px !important;
+            padding: 20px 2px !important;
+            font-weight: 700;
+            background: #1d225f!important;
+            border: #f3f3f3 !important;
+            color: #fff !important;
+        }
+        .fb_pixel_right {
+            width: 100%;
+            margin:auto;
+        }
+        ul.nav.nav-tabs.panel-heading.tab_bg {
+            width: 50%;
+            margin: auto;
+            float: right;
+        }
+        .del-btn {
+            background: #fb4242;
+            font-size: 13px !important;
+        }
+        .edit-btn {
+            background: #5978f7;
+            font-size: 13px !important;
+        }
+        div#tab-1 {
+            padding-left: 5% !important;
+            width: 90%;
+            margin: auto;
+            float: right;
+        }
+    
+        .header-container {
+            position: relative;
+            height: 45px;
+        }
+    
+        .header-bar {
+            width: 100%;
+            position: fixed;
+            height: 45px;
+            background: #1e225e;;
+            z-index: 9999;
+        }
+    
+    
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+    
+        @media screen and (min-width: 750px){
+            .more-apps-block>p {
+                float: left;
+                font-family: "Helvetica";
+                padding: 5px 5px 0 0;
+                font-size: 0.9em;
+                width: 72%;
+                text-align: left;
+                font-weight: 700;
+                color: #000;
+                margin: 0;
+                line-height: 1.7em;
+            }
+        }
+    
+    
+    
+    
+    
+    
+        .menu-items li {
+            float: left;
+            display: inline;
+            padding: 0;
+            line-height: 3.7em;
+            cursor: pointer;
+            margin-right: 1.7em;
+        }
+    
+        .menu-items li a {
+            text-decoration: none;
+            color: inherit;
+            float: left;
+        }
+    
+        .menu-items li a:visited {
+            text-decoration: none;
+            color: inherit;
+        }
+    
+        .menu-items li:not(.selected):hover {
+            color: #000;
+            border-bottom: 0.3rem solid #ccc;
+        }
+    
+        .menu-items li.selected {
+            color: #000;
+            border-bottom: 0.3rem solid #5c6ac4;
+        }
+    
+    
+        @media screen and (min-width: 750px){
+            .app-block-holder {
+                position: fixed;
+                top: 60;
+                width: 24rem;
+            }
+        }
+        @media screen and (min-width: 750px){
+            .app-block {
+                width: 100%;
+                float: left;
+                height: 50px;
+                padding: 10px;
+            }
+        }
+        @media screen and (min-width: 750px){
+            .app-block-logo {
+                float: left;
+                width: 50px;
+                height: 50px;
+                margin-right: 1rem;
+                background: url(style.css) left top / 50px 50px no-repeat;
+                border-radius: 5px;
+                -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.24);
+                -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.24);
+                box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.24);
+            }
+        }
+        @media screen and (min-width: 750px){
+            .app-block>p {
+                float: left;
+                height: 50px;
+                font-family: "Helvetica";
+                padding: 5px 5px 5px 0;
+                font-size: 1.1em;
+                width: 72%;
+                text-align: left;
+                font-weight: 700;
+                color: #000;
+            }
+        }
+    </style>
+
+    <style>
+        .menu-items{float:left;list-style-type:none}.menu-items li{float:left;display:inline;padding:0;line-height:3.7em;cursor:pointer;}.menu-items li a{text-decoration:none;color:inherit;float:left}.menu-items li a:visited{text-decoration:none;color:inherit}.menu-items li:not(.selected):hover{color:#000;}.menu-items li.selected{color:#000;border-bottom:.3rem solid #5c6ac4}
+        @media (min-width: 1200px) {
+
+            .col-lg-3 {
+                width: 45%;
+                margin-top: 10px;
+            }
+        }
+        .star-list-item {
+            display: table !important;
+            text-align: center ;
+            margin: 3rem auto !important;
+            margin-top: 13%;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f3f6f8;
+            position: fixed;
+            top: 0px;
+            left: 0;
+            bottom: 0;
+            box-shadow: 1px 0px 10px #777;
+        }
+        div#payment-icons-div {
+            margin-top: 5%;
+        }
+
+        .sidebar nav > a {
+            font-size: 150%;
+            display: inline-block;
+            padding: 30px 0px;
+            padding-left: 30px;
+            opacity: 0.7;
+            transition: all 0.2s;
+        }
+        .sidebar nav > a:hover {
+            opacity: 1;
+        }
+
+        .sidebar nav a span {
+            font-weight: 300;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
+            font-size: 15px;
+            padding: 19px 0;
+            padding-left: 20px;
+        }
+
+
+        .sidebar nav ul li:nth-child(1).active {
+            background: #fff;
+            color: #09c405;
+            border-left: 5px solid #09c405 !important;
+            border-right-color: transparent !important;
+        }
+
+
+        .sidebar nav ul li:nth-child(2).active {
+            background: #fff;
+            color: #09c405;
+            border-left: 5px solid #09c405 !important;
+            border-right-color: transparent !important;
+            border-right-color: transparent !important;
+        }
+
+
+
+        .sidebar nav ul li:nth-child(3).active {
+            background: #fff;
+            color: #09c405;
+            border-left: 5px solid #09c405 !important;
+            border-right-color: transparent !important;
+        }
+
+
+
+        .sidebar nav ul li:nth-child(4).active {
+            background: #fff;
+            color: #09c405;
+            border-left: 5px solid #09c405 !important;
+            border-right-color: transparent !important;
+        }
+
+
+
+        .sidebar nav ul li:nth-child(5).active {
+            background: #fff;
+            color: #09c405;
+            border-left: 5px solid #09c405 !important;
+            border-right-color: transparent !important;
+        }
+
+
+        .sidebar nav ul li a {
+            color: #000000;
+            font-size: 14px;
+        }
+
+        .sidebar nav ul li:hover a{
+            color: #fff;
+        }
+        .star-setting-selector.star-image-border-2 {
+            margin: auto;
+            width: 100%;
+            border: none !important;
+            text-align: center;
+        }
+        .star-setting-selector.star-image-border-1 {
+            margin: auto;
+            width: 100%;
+            border: none !important;
+            text-align: center;
+        }
+        .star-btn-size-md {
+            text-align: center;
+        }
+        li.list-group-item {
+            height: 50px;
+        }
+        .swatch-selected {
+            background-color: #c7c7c7;
+        }
+        .list-group {
+            margin-top: 70px;
+        }
+    </style>
+</head>
+
+<!-- Load Facebook SDK for JavaScript -->
+<body>
+<div class="header-container">
+    <div class="header-bar">
+
+    </div>
+</div>
+<div id="lanagage">
+    <div id="google_translate_element" class="lang"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
+</div>
+<style type="text/css">
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+    }
+    .overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }
+    .popup {
+        margin: 30px auto;
+        padding: 15px;
+        border-radius: 5px;
+        width: 49%;
+        position: absolute;
+        left: 35%;
+        /* transition: all 5s ease-in-out; */
+    }
+    .popup h2 {
+        margin-top: 0;
+        color: #333;
+        font-family: Tahoma, Arial, sans-serif;
+    }
+    .popup .close {
+        position: absolute;
+        top: 35px;
+        left: 25px;
+        background: #00495d;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        padding: 0px 5px;
+    }
+    .search {
+        position: absolute;
+        top: 19px;
+        left: 45%;
+        /* background: #ce00ff; */
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+        padding: 0px 5px;
+    }
+
+    .popup .close:hover {
+        color: #ffffff;
+    }
+    .popup .content {/*	max-height: 30%;
+*/overflow: auto;border-top: 2px dashed #d1d6d8;margin-top: 16px;}
+    .div1 {
+        width: 50%;
+        padding: 20px;
+        /* float: left; */
+        height: auto;
+        background:#fff;
+        border-radius: 25px;
+    }
+
+
+    .content h3 { text-align: center;
+        margin: 15px 0 -1px 0;
+        text-transform: uppercase;
+        color: #00495d;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .box {
+            width: 70%;
+        }
+        .popup {
+            width: 70%;
+            left:20%;
+        }
+        .div1 {
+            width: 70%;
+            padding: 20px;
+            float: left;
+        }
+
+    }
+
+    /* sticky button */
+
+    #feedback1 {
+        height: 0px;
+        width: 70px;
+        position: fixed;
+        right: 0;
+        top: 30%;
+        z-index: 1000;
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+
+    #feedback1 a {
+        display: block;
+        background:url(pc.png) no-repeat;
+        height: 52px;
+        width: 155px;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 17px;
+        font-weight: bold;
+        text-decoration: none;
+
+    }
+    #feedback1 a:hover {
+        background:url(pc-over.png) no-repeat;
+    }
+
+    #feedback {
+        height: 0px;
+        width: 85px;
+        position: fixed;
+        right: 0;
+        top: 50%;
+        z-index: 1000;
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+    #feedback a {
+        display: block;
+        background:#000;
+        height: 52px;
+        padding-top: 10px;
+        width: 155px;
+        text-align: center;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 17px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    #feedback a:hover {
+        background:#00495d;
+    }
+</style>
+<div class="app-block-holder">
+    <div class="app-block">
+        <span class="app-block-logo" style="background-image:url('https://cdn.shopify.com/s/files/1/0269/4725/6433/files/PIXEL-KING-LOGO_600x.png?v=1586880437')"></span>
+        <p>Pixel King</p>
+    </div>
+</div>
+<div class="app-wrapper">
+    <div class="app-content">
+        <main role="main">
+            <div class="app-container w-container">
+                <!-- Your Chat Plugin code -->
+
+                <div class="container tab_container">
+                    <!-- Start: Tabbed Panel -->
+                    <div class="panel panel-default">
+                        <ul class="nav nav-tabs panel-heading tab_bg">
+                            <li class="nav-item">
+                                <a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">
+                                    <i class="fas fa-code"></i> Pixel Settings
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" role="tab" data-toggle="tab" href="#tab-5" style="display: none;">
+                                    <i class="fas fa-unlink"></i> Uninstall
+                                </a>
+                            </li>
+                        </ul>
+                        <span class="tooltipp" style="display: none;">How can i help you ?</span>
+                        <div>
+
+                        </div>
+
+                        <style>
+                            .upgrade {
+                                margin-top: 1%;
+                            }
+
+                            .scroll-to-top {
+                                position: fixed;
+                                right: 4rem;
+                                bottom: 5rem;
+                                display: none;
+                                width: 2.75rem;
+                                height: 2.75rem;
+                                text-align: center;
+                                color: #fff;
+                                line-height: 46px;
+                                z-index: +99;
+                            }
+
+                            .tooltipp {
+                                position: fixed;
+                                right: 1rem;
+                                bottom: 8rem;
+                                color: blue;
+                                background-color: #ffffff;
+                                line-height: 46px;
+                                z-index: +9;
+                                border-radius: 11px;
+                                padding: 5px;
+                                box-shadow: 0 0 0 1px rgba(0, 0, 0, .25);
+                            }
+                        </style>
+                        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"> </head>
+
+                        <body>
+                            <div class="app-wrapper">
+                                <div class="app-content">
+                                    <main role="main">
+    
+                                        <style>
+                                            a.animated-button.victoria-one {
+                                                margin: 0;
+                                            }
+    
+                                            .form-check-label {
+                                                margin-top: 2px;
+                                                margin-left: 5px;
+                                            }
+    
+                                            .goog-logo-link,
+                                            .goog-logo-link:link,
+                                            .goog-logo-link:visited,
+                                            .goog-logo-link:hover,
+                                            .goog-logo-link:active {
+                                                display: none;
+                                            }
+    
+                                            .checkbox {
+                                                margin-top: 5px;
+                                            }
+    
+                                            .btn.btn-sm.animated-button.victoria-one {
+                                                margin-top: 10px;
+                                            }
+    
+                                            .uninstall p {
+                                                color: black;
+                                            }
+                                            .tab-content {
+                                            padding: 20px;
+                                        }
+    
+                                        .form-check-label.check-label {
+                                            font-weight: bold;
+                                        }
+    
+                                        .switch {
+                                            position: relative;
+                                            display: inline-block;
+                                            width: 50px;
+                                            height: 25px;
+                                            margin-bottom: 0;
+                                        }
+    
+                                        .switch input {
+                                            opacity: 0;
+                                            width: 0;
+                                            height: 0;
+                                        }
+    
+                                        .slider {
+                                            position: absolute;
+                                            cursor: pointer;
+                                            top: 0;
+                                            left: 0;
+                                            right: 0;
+                                            bottom: 0;
+                                            background-color: #ccc;
+                                            transition: 0.4s;
+                                            border-radius: 50%;
+                                        }
+    
+                                        .slider:before {
+                                            position: absolute;
+                                            content: "";
+                                            height: 19px;
+                                            width: 19px;
+                                            left: 3px;
+                                            bottom: 3px;
+                                            background-color: white;
+                                            transition: 0.4s;
+                                            border-radius: 50%;
+                                        }
+    
+                                        input:checked + .slider {
+                                            background-color: #2e92ea;
+                                        }
+    
+                                        input:checked + .slider:before {
+                                            transform: translateX(26px);
+                                        }
+    
+                                        .slider.round {
+                                            border-radius: 34px;
+                                        }
+    
+                                        .slider.round:before {
+                                            border-radius: 50%;
+                                        }
+    
+    
+                                        .google_trans {
+                                            margin-top: 30px;
+                                        }
+    
+                                        .label_w strong {
+                                            font-weight: bold;
+                                        }
+    
+                                        .input_h {
+                                            width: 100%;
+                                            padding: 10px;
+                                            border: 1px solid #ccc;
+                                            border-radius: 4px;
+                                            box-sizing: border-box;
+                                        }
+    
+                                        .form-check.label_check {
+                                            margin-top: 10px;
+                                        }
+    
+                                        .-Choice__HelpText {
+                                            margin-top: 5px;
+                                            font-size: 14px;
+                                            color: #777;
+                                        }
+    
+                                        .form-check.label_check input[type="radio"],
+                                        .form-check.label_check input[type="checkbox"] {
+                                            margin-top: 5px;
+                                        }
+    
+                                        #collectionRow {
+                                            margin-top: 10px;
+                                        }
+    
+                                        .Polaris-Button {
+                                            display: inline-block;
+                                            margin-top: 5px;
+                                            padding: 10px 20px;
+                                            background-color: #3E4B56;
+                                            color: white;
+                                            text-decoration: none;
+                                            border-radius: 4px;
+                                        }
+    
+                                        .table.pixel_table {
+                                            margin-top: 20px;
+                                            height: 300px;
+                                            overflow-y: auto;
+                                            border: 1px solid #ccc;
+                                            border-radius: 4px;
+                                        }
+    
+                                        .table.pixel_table th,
+                                        .table.pixel_table td {
+                                            padding: 10px;
+                                            border-bottom: 1px solid #ccc;
+                                        }
+    
+                                        .otherform {
+                                            margin-bottom: 20px;
+                                        }
+    
+                                        .otherform .form-control {
+                                            width: 100%;
+                                            padding: 10px;
+                                            border: 1px solid #ccc;
+                                            border-radius: 4px;
+                                            box-sizing: border-box;
+                                        }
+    
+                                        .fb_pixel_right {
+                                            margin-bottom: 20px;
+                                        }
+                                        .saveother {
+                                            display: inline-block;
+                                            padding: 10px 20px;
+                                            background-color: #3E4B56;
+                                            color: white;
+                                            text-decoration: none;
+                                            border-radius: 4px;
+                                        }
+    
+                                        .fb_pixel_label {
+                                            font-weight: bold;
+                                            margin-top: 10px;
+                                        }
+    
+                                        .fb_pixel_right {
+                                            margin-bottom: 20px;
+                                        }
+    
+                                        .error-message {
+                                            color: red;
+                                            font-size: 14px;
+                                            margin-top: 5px;
+                                        }
+    
+                                        .success-message {
+                                            color: green;
+                                            font-size: 14px;
+                                            margin-top: 5px;
+                                        }
+    
+                                        .notification-message {
+                                            margin-top: 10px;
+                                            padding: 10px;
+                                            border: 1px solid #ccc;
+                                            border-radius: 4px;
+                                        }
+    
+                                        .notification-message.success {
+                                            background-color: #E9F7EF;
+                                            border-color: #A3D3A8;
+                                        }
+    
+                                        .notification-message.error {
+                                            background-color: #FBEAEA;
+                                            border-color: #DCA7A7;
+                                        }
+                                        
+                                        </style>
+                                        <div class="Polaris-Tab__Content Polaris-Panel__Body">
+    
+                                            <!------------pixel-seeting------------>
+                                            <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                                <div class="">
+                                                    <div class="row">
+                                                        <!-- Start: Toggle Switch -->
+                                                        <div class="col-md-6 col-6" style="margin-top: 30px;">
+    
+                                                            <p><span class="form-check-label check-label">App Status:</span>
+                                                                <span><label class="switch">
+                                                                <input type="checkbox" name="status" value="1" id="changeStatus" <%= app_statu == "true" ? "checked" : "" %> >
+                                                                 <span class="slider round"></span>
+                                                                </label>
+                                                                 </span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-6 google_trans">
+                                                            <!--                                                        <div id="google_translate_element" class="lang"></div>-->
+                                                            <!--                                                        <script type="text/javascript">-->
+                                                            <!--                                                            function googleTranslateElementInit() {-->
+                                                            <!--                                                                new google.translate.TranslateElement({-->
+                                                            <!--                                                                    pageLanguage: 'en'-->
+                                                            <!--                                                                }, 'google_translate_element');-->
+                                                            <!--                                                            }-->
+                                                            <!--                                                        </script>-->
+                                                        </div>
+                                                        <!-- End: Toggle Switch -->
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 fb_pixel" id="pack-1-text">
+                                                    <div class="row">
+    
+                                                        <div class="fb_pixel_right">
+                                                            <form class="col" id="pixelForm">
+                                                                <input type="hidden" name="id" id="idInput">
+                                                                <div class="form-group">
+                                                                    <label class="label_w">
+                                                                        <strong>Pixel ID</strong>
+                                                                        <br>
+                                                                    </label>
+                                                                    <input type="text" name="code" value="" id="code" class="form-group input_h" placeholder="Enter Your Facebook Pixel ID">
+                                                                </div>
+                                                                <div class="same">
+                                                                    <div class="form-check label_check">
+                                                                        <input class="form-check-input" type="checkbox" name="api_convert" value="1" id="api_convert"  >
+                                                                        <label class="form-check-label check-label">Conversion API (solution for Apple devices)
+                                                                        </label>
+                                                                    </div>
+    
+                                                                    <div class="Polaris-Choice__Descriptions">
+                                                                        <div class="Polaris-Choice__HelpText" id="PolarisRadioButton2HelpText">Conversion API helps Facebook collect more accurate data from visitors.</div>
+                                                                    </div>
+                                                                    <div style="display:none"  id="api_body">
+    
+                                                                        <div class="form-group">
+                                                                            <label class="label_w">
+                                                                                <strong>Facebook Access Token</strong>
+                                                                                <br>
+                                                                            </label>
+                                                                            <input type="text" name="token_access" value="" id="token_access" class="form-group input_h" placeholder="">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="label_w">
+                                                                                <strong>Test Event Code</strong>
+                                                                                <br>
+                                                                            </label>
+                                                                            <input type="text" name="code_test" value="" id="code_test" class="form-group input_h" placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-check label_check"><input class="form-check-input masterPixel" type="radio" name="type" value="master"  id="formCheck-1"><label class="form-check-label check-label" for="formCheck-1">All - Main / Backup Pixel (Master Pixel)&nbsp;<br></label></div>
+                                                                <div class="Polaris-Choice__Descriptions"><div class="Polaris-Choice__HelpText" id="PolarisRadioButton1HelpText">Pixel will fire on all pages</div></div>
+                                                                <div class="same">
+                                                                    <div class="form-check label_check"><input class="form-check-input collectionPixel" type="radio" name="type" id="formCheck-2" value="collection"><label class="form-check-label check-label" for="formCheck-2">Collections Pixel&nbsp;<br></label></div>
+                                                                    <div class="Polaris-Choice__Descriptions"><div class="Polaris-Choice__HelpText" id="PolarisRadioButton2HelpText">Pixel will fire only for the selected collection(s)</div></div>                                                            <div id="collectionRow" style="margin-top: 10px;">
+                                                                        <select class="" name="collections[]" id="collectionSelector" multiple="multiple" style="margin-top:5px;width:100%">
+    
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="normalButtons" class="row" style="margin-top: 5px;margin-left: 0;">
+                                                                    <!-- Start: Hover Button 1 -->
+                                                                    <a class="Polaris-Button" id="add" style="color: white">ADD THIS PIXEL</a>
+                                                                    <script src="https://cdn.jsdelivr.net/npm/@shopify/polaris@11.0.1/build/umd/index.min.js"></script>
+                                                                </div>
+    
+                                                                <div id="editButtons" class="row buttons" style="display:none;margin-top: 5px;margin-left: 0;">
+                                                                    <div class="fb-pixel-button">
+                                                                        <button id="updateButton" class="btn btn-default edit-btn">Update</button>
+                                                                        <button id="cancelButton" class="btn btn-default del-btn">Cancel</button>
+                                                                    </div>
+                                                            </form>
+                                                        </div>
+                                                        <!-- End: Hover Button 1 -->
+                                                        <div class="table-responsive table pixel_table" id="dataTable" role="grid" aria-describedby="dataTable_info" style="height:300px">
+                                                            <table class="table my-0 list" id="dataTable">
+                                                                <thead class="pixel_thead">
+                                                                <tr>
+                                                                    <th>PIXELS</th>
+                                                                    <th>COLLECTIONS</th>
+                                                                    <th>OPERATIONS</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="col-12 fb_pixel" id="pack-2-text">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-8 fb_pixel_right">
+                                                        <form action="/otheradd" method="post" class="otherform">
+                                                            <div class="form-group" id="pack-2-text-1">
+                                                                <label for="">
+                                                                    Pinterest Id
+                                                                </label>
+                                                                <input type="text" class="form-control" name="pinterestid" id="pintid"  placeholder="Paste Your Pixel Id">
+                                                                <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                    Pinterest Pixel Tag implementation in 1-click
+                                                                </p>
+                                                            </div>
+                                                            <div class="form-group" id="pack-2-text-2">
+                                                                <label for="">
+                                                                    Snapchat Id
+                                                                </label>
+                                                                <input type="text" class="form-control" name="snapchatid"  id="snpid" placeholder="Paste Your Pixel Id">
+                                                                <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                    Snapchat Pixel Tag implementation in 1-click
+                                                                </p>
+                                                            </div>
+                                                            <div class="form-group" id="pack-2-text-3">
+                                                                <label for="">
+                                                                    Tiktok Id
+                                                                </label>
+                                                                <input type="text" class="form-control" name="tiktok" id="tktid" placeholder="Paste Your Pixel Id">
+                                                                <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                    Tiktok Pixel Tag implementation in 1-click
+                                                                </p>
+                                                            </div>
+                                                            <div class="form-group" id="pack-2-text-4">
+                                                                <label for="">
+                                                                    Twitter Id
+                                                                </label>
+                                                                <input type="text" class="form-control" name="twitter" id="twtid" placeholder="Paste Your Pixel Id">
+                                                                <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                    Twitter Pixel Tag implementation in 1-click
+                                                                </p>
+                                                            </div>
+                                                            <div class="form-group" id="pack-2-text-5">
+                                                                <label for="">
+                                                                    Taboola Id
+                                                                </label>
+                                                                <input type="text" class="form-control" name="taboola" id="tblid"  placeholder="Paste Your Pixel Id">
+                                                                <p style="text-align: center; font-size: 16px; margin-top: 16px;">
+                                                                    Taboola Pixel Tag implementation in 1-click
+                                                                </p>
+                                                            </div>
+    
+    
+    
+                                                        </form>
+                                                        <a class="Polaris-Button" style="color:white;">Submit</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+    
+    
+                                            </a>
+    
+                                            <div class="form-group" id="pack-2-text-6"  style="display: none">
+    
+    
+    
+    
+                                                        <div class="">
+                                                            <div class="row">
+                                                                <!-- Start: Toggle Switch -->
+    
+                                                                <div class="col-md-6 col-6 google_trans">
+                                                                    <!--                                                        <div id="google_translate_element" class="lang"></div>-->
+                                                                    <!--                                                        <script type="text/javascript">-->
+                                                                    <!--                                                            function googleTranslateElementInit() {-->
+                                                                    <!--                                                                new google.translate.TranslateElement({-->
+                                                                    <!--                                                                    pageLanguage: 'en'-->
+                                                                    <!--                                                                }, 'google_translate_element');-->
+                                                                    <!--                                                            }-->
+                                                                    <!--                                                        </script>-->
+                                                                </div>
+                                                                <!-- End: Toggle Switch -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 fb_pixel" id="pack-1-text">
+                                                            <div class="row">
+    
+                                                                <div class="fb_pixel_right vd_setting">
+    
+                                                                    <div class="Polaris-MediaCard"><div class="Polaris-MediaCard__MediaContainer"><iframe title="how to install meta pixel (facebook pixel) with API conversion no code needed" src="https://www.youtube.com/embed/Se6ePzyM3rI" width="100%" frameborder="0" allowfullscreen=""></iframe></div><div class="Polaris-MediaCard__InfoContainer"><div class="Polaris-Card__Section"><div class="Polaris-Stack Polaris-Stack--vertical Polaris-Stack--spacingTight"><div class="Polaris-Stack__Item"><div class="Polaris-MediaCard__Heading"><h2 class="Polaris-Heading">how to install meta pixel (facebook pixel) with API conversion no code needed</h2></div></div><div class="Polaris-Stack__Item"><p></p></div></div></div></div></div>
+    
+    
+                                                                </div>
+                                                                <div class="fb_pixel_right vd_setting"  >
+    
+                                                                    <div class="Polaris-MediaCard"><div class="Polaris-MediaCard__MediaContainer"><iframe title="How to check the Facebook Pixel is working or Not | Facebook Pixel Helper Extension
+    " src="https://www.youtube.com/embed/ILHG59etn9s" width="100%" frameborder="0" allowfullscreen=""></iframe></div><div class="Polaris-MediaCard__InfoContainer"><div class="Polaris-Card__Section"><div class="Polaris-Stack Polaris-Stack--vertical Polaris-Stack--spacingTight"><div class="Polaris-Stack__Item"><div class="Polaris-MediaCard__Heading"><h2 class="Polaris-Heading">How to check the Facebook Pixel is working or Not | Facebook Pixel Helper Extension
+                                                                                            </h2></div></div><div class="Polaris-Stack__Item"><p></p></div></div></div></div></div>
+                                                                </div> <div class="fb_pixel_right vd_setting"  >
+    
+                                                                    <div class="Polaris-MediaCard"><div class="Polaris-MediaCard__MediaContainer"><iframe title="How to Add Pixel For Specific Collection/Niche ..." src="https://www.youtube.com/embed/AfmaZRyzrCI" width="100%" frameborder="0" allowfullscreen=""></iframe></div><div class="Polaris-MediaCard__InfoContainer"><div class="Polaris-Card__Section"><div class="Polaris-Stack Polaris-Stack--vertical Polaris-Stack--spacingTight"><div class="Polaris-Stack__Item"><div class="Polaris-MediaCard__Heading"><h2 class="Polaris-Heading">How to Add Pixel For Specific Collection/Niche | works with multi pixels
+                                                                                            </h2></div></div><div class="Polaris-Stack__Item"><p></p></div></div></div></div></div>
+                                                                </div>
+                                                                <!-- End: Hover Button 1 -->
+                                                            </div>
+                                                        </div>
+                                            </div>
+    
+                                        </div>
+                                        <!------------pixel-seeting-close------------>
+    
+    
+    
+    
+    
+                                        <!------------Faq------------>
+                                        <!------------Faq-close------------>
+    
+                                        <!------------Uninstall------------>
+    
+                                        <!------------Uninstall-close------------>
+    
+                                    </main>
+                                </div>
+                            </div>
+                        <!-- End: Tabbed Panel -->
+                    </div>
+        </main>
+    </div>
+</div>
+</div>
+</main>
+
+
+</div>
+</div>
+<div id="fb-root"></div>
+
+
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var Toast = actions.Toast;
+
+
+    });
+</script>
+
+
+<!--Start of Tawk.to Script-->
+
+<!--End of Tawk.to Script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="./js/script.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<script type="text/javascript">
+    function addPixelRow(pixel) {
+        let table = $('.list');
+        let row = '';
+        if (pixel.type == 'master') {
+            row = '<tr id="pixelRow' + pixel.id + '">\n' +
+                '<td><span style="display:none" id="type' + pixel.id + '">master</span>\n' +
+                '<span id="code' + pixel.id + '">' + pixel.code + '</span></td>' +
+                '<td><span>Master</span></td>' +
+                ' <td>' +
+                '<button pixelid="' + pixel.id + '" class="btn btn-default edit-btn">Edit</button>' +
+                ' <button pixelid="' + pixel.id + '" class="btn btn-default del-btn">Delete</button>' +
+                '</td>' +
+                '</tr>';
+        } else {
+            let collects = '';
+            let collectIds = '';
+            for (var i = 0; i < pixel.collections.length; i++) {
+                collects = collects + pixel.namecol[i] + ', ';
+            }
+            for (var i = 0; i < pixel.collections.length; i++) {
+                collectIds = collectIds +pixel.collections[i] + ', ';
+            }
+
+
+            row = '<tr id="pixelRow' + pixel.id + '">' +
+                '<td><span style="display:none" id="type' + pixel.id + '">collection</span>' +
+                '<span style="display:none"  id="collections' + pixel.id + '">' + collectIds.slice(0, -2) + '</span>' +
+                '<span id="code' + pixel.id + '">' + pixel.code + '</span></td>' +
+                '<td><span>' + collects.slice(0, -2) + '</span></td>' +
+                ' <td>' +
+                '<button pixelid="' + pixel.id + '" class="btn btn-default edit-btn">Edit</button>' +
+                ' <button pixelid="' + pixel.id + '" class="btn btn-default del-btn">Delete</button>' +
+                '</td>' +
+                '</tr>';
+
+        }
+
+        table.append(row);
+    }
+
+    $('document').ready(function () {
+        let dataApp =  <%- data %>
+            console.log(dataApp);
+            let app_statu = <%- app_statu %>
+        $('#snpid').val(dataApp.outherpixels.snapchat)
+        $('#pintid').val(dataApp.outherpixels.pinterest)
+        $('#tblid').val(dataApp.outherpixels.taboola)
+        $('#tktid').val(dataApp.outherpixels.tiktok)
+        $('#twtid').val(dataApp.outherpixels.twitter)
+       // $('#snpid').val(dataApp.)
+let pixels = dataApp.fbpixels
+        for(let i=0;i<pixels.length;i++)
+        {
+            addPixelRow(dataApp.fbpixels[i])
+        }
+        //
+    })
+    toastr.options = {
+        "closeButton": true,
+        "closeClass": "toast-close-button",
+        "closeDuration": 300,
+        "closeEasing": "swing",
+        "closeHtml": "<button><i class=\"icon-off\"><\/i><\/button>",
+        "closeMethod": "fadeOut",
+        "closeOnHover": true,
+        "containerId": "toast-container",
+        "debug": false,
+        "escapeHtml": false,
+        "extendedTimeOut": 10000,
+        "hideDuration": 1000,
+        "hideEasing": "linear",
+        "hideMethod": "fadeOut",
+        "iconClass": "toast-info",
+        "iconClasses": {
+            "error": "toast-error",
+            "info": "toast-info",
+            "success": "toast-success",
+            "warning": "toast-warning"
+        },
+        "messageClass": "toast-message",
+        "newestOnTop": false,
+        "onHidden": null,
+        "onShown": null,
+        "positionClass": "toast-bottom-center",
+        "preventDuplicates": true,
+        "progressBar": false,
+        "progressClass": "toast-progress",
+        "rtl": false,
+        "showDuration": 300,
+        "showEasing": "swing",
+        "showMethod": "fadeIn",
+        "tapToDismiss": true,
+        "target": "body",
+        "timeOut": 5000,
+        "titleClass": "toast-title",
+        "toastClass": "toast"
+    };
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+    $(document).ready(function() {
+        $('.clip').click(function() {
+            toastr.remove();
+            var copyText = document.getElementById("copyy");
+            copyText.select();
+            document.execCommand("copy");
+            toastr.success('Copy text success');
+        });
+        $(document).on('DOMNodeInserted', '.goog-te-gadget', function(e) {
+            this.childNodes.forEach(function(element, index) {
+                if (element.nodeName === "#text") {
+                    element.remove();
+                }
+            });
+        });
+        $('#ascript').show();
+        $('#ascriptbtnn:checkbox').change(function() {
+            $.ajax({
+                url: "http://multi-pixels.com/add",
+                method: "GET",
+                success: function(response) {
+                    toastr.remove();
+                    if (response.error) {
+                        toastr.error(response.error_data);
+                    } else {
+                        toastr.success('Status changed successfully');
+                    }
+
+                }
+            });
+            if ($(this).prop('checked') == true) {
+                $('#ascript').show(1000);
+            } else {
+                $('#ascript').hide(1000);
+            }
+        });
+        $('#changeStatus').change(function() {
+            let statu = $('#changeStatus').is(":checked")
+            $.ajax({
+                url: "/Change-Status",
+                method: "POST",
+                dataType: "json",
+                data: {
+                    statu: statu
+                },
+                success: function(response) {
+                    toastr.remove();
+                    if (response.status != true) {
+                        toastr.error(response.error_data);
+                    } else {
+                        toastr.success('Status changed successfully');
+                    }
+
+                }
+            });
+        });
+        // $('#list').paginate({perPage:10});
+
+        /////////////VARIABLES////////////////////
+        let selector = $('#collectionSelector');
+        let idInput = $('#idInput');
+        let collectionRow = $('#collectionRow');
+        let masterButton = $('.masterPixel');
+        let collectionButton = $('.collectionPixel');
+        let settingSelector = $('#setting');
+        let normalButtons = $('#normalButtons');
+        let editButtons = $('#editButtons');
+        let updateButton = $('#updateButton');
+        let cancelButton = $('#cancelButton');
+        let preferenceButton = $('#preferenceButton');
+        let messageButton = $('#messageButton');
+        /////////////END VARIABLES//////////////
+
+        //////////////CLICK LISTENERS//////////////
+
+        selector.select2({
+            placeholder: "Select one or more collections"
+        });
+        //  $('.select-box').select2({
+        //       placeholder: 'Select an option'
+        //     });
+        masterMode();
+        collectionButton.on('click', function() {
+            collectionMode();
+        });
+        masterButton.on('click', function() {
+            masterMode();
+        })
+        cancelButton.on('click', function(e) {
+            $('.addd').show();
+            e.preventDefault();
+            normalMode();
+        });
+        updateButton.on('click', function(e) {
+            e.preventDefault();
+            updatePixel();
+        });
+
+        messageButton.on('click', function(e) {
+            e.preventDefault();
+            sendMessage();
+        });
+
+        $('.btn').click(function(e) {
+            if ($(this).hasClass('edit-btn') || $(this).attr('id') == 'cancelButton' || $(this).hasClass('clip') || $(this).hasClass('upgrade')) return;
+            toastr.info('Please wait!');
+        });
+
+        $('#add').click(function(e) {
+            e.preventDefault();
+            addPixel();
+        });
+
+        $('#setting').change(function() {
+            toastr.info('', 'Please Wait!');
+            updateSetting();
+        });
+
+        $('body').on('click', '.del-btn', function() {
+            let id = $(this).attr('pixelId');
+            deletePixel(id);
+            normalMode();
+            resetInput();
+        });
+
+        $('body').on('click', '.edit-btn', function() {
+
+            editMode();
+            let id = $(this).attr('pixelId');
+            editPixel(id);
+        });
+        $('body').on('click', '.saveother', function() {
+            updateother();
+        });
+
+
+        //////////////END LISTENERS/////////////////
+
+        ///////////////FUNCTIONS/////////////////
+
+        function addPixel() {
+            var selText=[];
+            $('#collectionSelector option:selected').each(function () {
+                var $this = $(this);
+                if ($this.length) {
+                    selText.push($this.text())
+                }
+            });
+            let code = $('#code').val();
+            let collections = $('#collectionSelector').val();
+            let type = $("input[name='type']:checked").val();
+            let id = Math.floor(Math.random() * 1000);
+            collections = JSON.stringify(collections)
+            $.ajax({
+                url: "/addpixel",
+                method: "POST",
+                dataType: "json",
+                data: {
+                    type: type,
+                    code: code,
+                    collections: collections,
+                    id : id,
+                    colname :JSON.stringify(selText)
+                },
+                success: function(response) {
+                    resetInput();
+                    toastr.remove();
+                    if (response.error) {
+                        toastr.error(response.error_data);
+                    } else {
+                        toastr.success('Pixel added successfully');
+                        addPixelRow(response.pixel);
+                    }
+
+                }
+            });
+        }
+
+        function updatePixel() {
+            var selText=[];
+            $('#collectionSelector option:selected').each(function () {
+                var $this = $(this);
+                if ($this.length) {
+                    selText.push($this.text())
+                }
+            })
+            let code = $('#code').val();
+            let collections = $('#collectionSelector').val();
+            let type = $("input[name='type']:checked").val();
+            let id = $('#idInput').val();
+            $('#pixelRow' + id).remove();
+            collections = JSON.stringify(collections)
+            $.ajax({
+                url: "/update_pixel",
+                method: "POST",
+                dataType: "json",
+                data: {
+                    shop: '',
+                    id: id,
+                    code: code,
+                    collections: collections,
+                    type: type,
+                    colname :JSON.stringify(selText)
+
+                },
+                success: function(response) {
+                    resetInput();
+                    toastr.remove();
+                    if (response.error) {
+                        toastr.error(response.error_data);
+                    } else {
+                        toastr.success('Pixel updated successfully');
+                        addPixelRow(response.pixel);
+                        normalMode();
+                    }
+
+                }
+            });
+        }
+
+        function deletePixel(id) {
+            $.ajax({
+                url: "/delete",
+                method: "POST",
+                data: {
+                    shop: '',
+                    id: id
+                },
+                success: function(response) {
+                    toastr.remove();
+                    if (response.error) {
+                        toastr.error(response.error_data);
+                    } else {
+                        $('#pixelRow' + id).remove();
+                        toastr.success(response.message);
+                    }
+                }
+            });
+        }
+
+
+
+        function updateSetting() {
+            let value = $('#setting').val();
+
+            $.ajax({
+                url: "/update",
+                method: "POST",
+                data: {
+                    shop:'',
+                    setting: value,
+                },
+                success: function(response) {
+                    toastr.remove();
+                    if (response.error) {
+                        toastr.error(response.error_data);
+                    } else {
+                        toastr.success(response.message);
+                    }
+
+                }
+            });
+        }
+
+        function updateother() {
+            $.ajax({
+                url: "/otheradd",
+                method: "POST",
+                data: $('.otherform').serialize(),
+                success: function(response) {
+                    toastr.remove();
+                    if (response.error) {
+                        toastr.error(response.error_data);
+                    } else {
+                        toastr.success(response.message);
+                    }
+
+                }
+            });
+        }
+
+
+
+
+        function editPixel(id) {
+            let type = $('#type' + id).text();
+            let collections;
+            $('#code').val($('#code' + id).text());
+            idInput.val(id);
+          if (type == 'collection') {
+                collectionMode();
+                collections = $('#collections' + id).text().split(' ').join('').split(',');
+                $("#collectionSelector option").each(function(indexx, item) {
+                    var vall = $(this).val();
+                    collections.forEach(function(item2, index) {
+                        var coll = item2;
+                        if (parseInt(coll) == parseInt(vall)) {
+                            $(item).prop('selected', true);
+                        }
+                    });
+                });
+                $('#collectionSelector').trigger('change');
+            } else {
+                masterMode();
+            }
+        }
+
+        function resetInput() {
+            $('#collectionRow').hide();
+            $('#code').val('');
+            $('#collectionSelector').val('');
+            $("#masterPixel").prop("checked", true);
+        }
+
+        function resetMessageInput() {
+            $('#email').val('');
+            $('#subject').val('');
+            $('#message').val('');
+        }
+
+        function masterMode() {
+            masterButton.prop("checked", true);
+            collectionRow.hide();
+        }
+
+
+
+        function collectionMode() {
+            collectionButton.prop("checked", true);
+            collectionRow.show();
+        }
+
+        function editMode() {
+            normalButtons.hide();
+            editButtons.show();
+        }
+
+        function normalMode() {
+            masterMode();
+            editButtons.hide();
+            normalButtons.show();
+            $('#code').val('');
+            $('#collectionSelector').val('');
+        }
+
+
+        ///////////////END FUNCTIONS//////////////
+    });
+</script>
+<script>
+    var st = new XMLHttpRequest();
+    var shop =getCookie('shop')
+    var url = "http://multi-pixels.com/collection?store=" +shop;
+    st.open("GET", url, true);
+    st.onreadystatechange = function () {
+        if (st.readyState === 4 && st.status === 200) {
+            var _response = this.responseText
+            var collections = JSON.parse(_response)
+            collections =collections.custom_collections
+            for (let i =0 ;i<collections.length;i++)
+            {
+                $('#collectionSelector').append($('<option>', {
+                    value: collections[i].id,
+                    text: collections[i].title
+                }));
+            }
+        }
+    };
+
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+    st.send();
+
+</script>
+<script>
+    const pack1 = document.getElementById("pack-1");
+    const pack2 = document.getElementById("pack-2");
+    const pack4 = document.getElementById("pack-4");
+    const pack1text = document.getElementById("pack-1-text");
+    const pack2text = document.getElementById("pack-2-text");
+    const pack3text = document.getElementById("pack-3-text");
+    const pack4text = document.getElementById("pack-4-text");
+
+    pack2.style.borderBottom = "none";
+    pack4.style.borderBottom = "none";
+    pack1text.style.display = "block";
+    pack3text.style.display = "block";
+    pack1.classList.add("active");
+    pack2text.style.display = "none";
+    pack4text.style.display = "none";
+
+    pack1.onclick = function(){
+        pack1text.style.display = "block";
+        pack3text.style.display = "block";
+        pack2text.style.display = "none";
+        pack4text.style.display = "none";
+        pack2.style.borderBottom = "none";
+        pack4.style.borderBottom = "none";
+        pack1.classList.add("active");
+        pack2.classList.remove("active");
+        pack4.classList.remove("active");
+    }
+    pack2.onclick = function(){
+        pack1text.style.display = "none";
+        pack4text.style.display = "none";
+        pack2text.style.display = "block";
+        pack1.style.borderBottom = "none";
+        pack3text.style.display = "none";
+        pack2.classList.add("active");
+        pack1.classList.remove("active");
+        pack4.classList.remove("active");
+    }
+    pack4.onclick = function(){
+        pack1text.style.display = "none";
+        pack2text.style.display = "none";
+        pack4text.style.display = "block";
+        pack1.style.borderBottom = "none";
+        pack3text.style.display = "none";
+        pack4.classList.add("active");
+        pack1.classList.remove("active");
+        pack2.classList.remove("active");
+    }
+
+</script>
+
+
+</body>
+
+</html>
