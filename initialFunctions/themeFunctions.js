@@ -42,6 +42,31 @@ function addLiquidToTheme(accessTkn,shop,themeId,data,liquidName){
         jsonParm );
 }
 
+async function createTheme() {
+    try {
+      const themeResponse = await getThemeActiveId(shop, accessTkn);
+      const themes = JSON.parse(themeResponse);
+      const activeThemeId = themes[0].id
+
+      await AddScriptTheme(accessTkn, shop, activeThemeId);
+  
+      const liquidName = 'layout.liquid';
+      const liquidContent = `
+        <div>
+          <h1>Welcome to My Pixel!</h1>
+          <p>Thank you for visiting our website.</p>
+        </div>
+      `;
+      await addLiquidToTheme(accessTkn, shop, activeThemeId, liquidContent, liquidName);
+  
+      console.log('Theme created successfully!');
+    } catch (error) {
+      console.error('Failed to create theme:', error);
+    }
+  }
+  
+  createTheme();
+
 
 module.exports = {
     getThemeActiveId,
